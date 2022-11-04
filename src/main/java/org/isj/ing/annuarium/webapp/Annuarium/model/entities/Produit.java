@@ -1,0 +1,58 @@
+package org.isj.ing.annuarium.webapp.Annuarium.model.entities;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.LinkedHashSet;
+import java.util.Set;
+
+@Entity
+@Table(name = "produit")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@JsonIgnoreProperties(value={"hibernateLazyInitializer"})
+public class Produit implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_produit", nullable = false)
+    private Integer id;
+
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "id_vendeur", nullable = false)
+    private Vendeur idVendeur;
+
+    @Column(name = "prix_unit", nullable = false)
+    private Integer prixUnit;
+
+    @Column(name = "qntite_en_stock", nullable = false)
+    private Integer qntiteEnStock;
+
+    @Column(name = "seuil", nullable = false)
+    private Integer seuil;
+
+    @Column(name = "nom_produit", nullable = false)
+    private String nomProduit;
+
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "id_categorie", nullable = false)
+    private Categorie idCategorie;
+
+
+
+    @Column(name = "nom_image")
+    private String nomImage;
+
+    @Column(name = "image_produit")
+    private String imageProduit;
+
+
+
+   }
