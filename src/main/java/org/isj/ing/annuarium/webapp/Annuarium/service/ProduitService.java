@@ -58,7 +58,8 @@ public class ProduitService implements Iproduit {
     }
 
     @Override
-    public Produit updateProd(Produit produit) throws isjException {
+    public Produit updateProd(Integer id) throws isjException {
+        Produit produit= produitRepository.findById(id).orElseThrow(()->new isjException(ErrorInfo.PRODUIT_NOT_FOUND));
         Categorie categorie = categorieRepository.findById(produit.getIdCategorie().getId()).orElseThrow(()->new isjException(ErrorInfo.CATEGORIE_NOT_FOUND));
         Vendeur vendeur = vendeurRepository.findById(produit.getIdVendeur().getId()).orElseThrow(()->new isjException(ErrorInfo.VENDEUR_NOT_FOUND));
         produit.setIdCategorie(categorie);

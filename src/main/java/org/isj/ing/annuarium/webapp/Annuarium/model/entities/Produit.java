@@ -23,7 +23,7 @@ public class Produit implements Serializable {
     @Column(name = "id_produit", nullable = false)
     private Integer id;
 
-    @JsonIgnore
+   // @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "id_vendeur", nullable = false)
     private Vendeur idVendeur;
@@ -40,7 +40,7 @@ public class Produit implements Serializable {
     @Column(name = "nom_produit", nullable = false)
     private String nomProduit;
 
-    @JsonIgnore
+    //@JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "id_categorie", nullable = false)
     private Categorie idCategorie;

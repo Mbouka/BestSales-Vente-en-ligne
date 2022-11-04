@@ -23,7 +23,9 @@ public class ProduitRestController {
         try {
            iproduit.saveProd(produit);
         }catch ( NullPointerException exception){
+            System.out.println(exception.getMessage());
             return exception.getMessage();
+
         }
         return "Enregistrement Réussi !";
     }
@@ -37,10 +39,10 @@ public class ProduitRestController {
         return ResponseEntity.ok(iproduit.PRODUIT_LIST(page, size));
     }
 
-    @GetMapping("/update")
-    public String updateProd(@RequestBody Produit produit)throws isjException{
+    @GetMapping("/update/{id}")
+    public String updateProd(@PathVariable("id") Integer id)throws isjException{
         try {
-            iproduit.updateProd(produit);
+            iproduit.updateProd(id);
         }catch (isjException i){
             return i.getMessage();
         }
