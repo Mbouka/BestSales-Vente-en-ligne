@@ -7,15 +7,16 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 
 @Entity
 @Table(name = "produit")
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @JsonIgnoreProperties(value={"hibernateLazyInitializer"})
-public class Produit {
+@Data
+public class Produit implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_produit", nullable = false)
@@ -47,11 +48,11 @@ public class Produit {
     @JoinColumn(name = "id_categorie", nullable = false)
     private Categorie idCategorie;
 
-    @Column(name = "nom_cat")
-    private String nomCat;
+    /*@Transient
+    public String getPhotosImagePath() {
+        if (nomImage == null || id == null) return null;
 
-
-
-
+        return "/user-photos/" + id + "/" + nomImage;
+    }*/
 
    }

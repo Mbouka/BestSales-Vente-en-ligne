@@ -37,28 +37,20 @@ public class ProduitService implements Iproduit {
 
     @Override
     public Produit saveProd(Integer idCat , Integer idVnte) throws isjException {
-        //File fileP = new File("E:/vente/src/main");
-        Produit produit = new Produit();
-        System.out.println("categorie");
+
         Categorie categorie = categorieRepository.findById(idCat).orElseThrow(() -> new isjException(ErrorInfo.CATEGORIE_NOT_FOUND));
         Vendeur vendeur = vendeurRepository.findById(idVnte).orElseThrow(()->new isjException(ErrorInfo.VENDEUR_NOT_FOUND));
-        produit.setNomCat(categorie.getNomCat());
-        if (produit.getNomCat()!= categorie.getNomCat()){
-            categorie.setNomCat(produit.getNomCat());
-            categorieRepository.save(categorie);
-        }
-        produit.setIdVendeur(vendeur);
-
+        Produit produit = new Produit();
         produit.setId(produit.getId());
-
-        produit.setSeuil(produit.getSeuil());
-
+        produit.setIdVendeur(vendeur);
+        produit.setIdCategorie(categorie);
         produit.setNomProduit(produit.getNomProduit());
+        produit.setSeuil(produit.getSeuil());
         produit.setPrixUnit(produit.getPrixUnit());
         produit.setQntiteEnStock(produit.getQntiteEnStock());
         produit.setNomImage(produit.getNomImage());
         Produit prsave = produitRepository.save(produit);
-       // ImageIO.write(fileP);
+
         if (prsave == null){
             throw new isjException("Imposssible d'enregister ,réessayez plustard", Status.NOT_FOUND);
         }
@@ -70,20 +62,12 @@ public class ProduitService implements Iproduit {
 
         Produit produit = new Produit();
         System.out.println("categorie");
-       // Categorie categorie = categorieRepository.findById(idCat).orElseThrow(() -> new isjException(ErrorInfo.CATEGORIE_NOT_FOUND));
-        //Vendeur vendeur = vendeurRepository.findById(idVnte).orElseThrow(()->new isjException(ErrorInfo.VENDEUR_NOT_FOUND));
-       /* produit.setNomCat(categorie.getNomCat());
-        if (produit.getNomCat()!= categorie.getNomCat()){
-            categorie.setNomCat(produit.getNomCat());
-            categorieRepository.save(categorie);
-        }
-      produit.setIdVendeur(vendeur);*/
-
         produit.setNomProduit(produit.getNomProduit());
+        produit.setNomImage(produit.getNomImage());
         produit.setSeuil(produit.getSeuil());
         produit.setPrixUnit(produit.getPrixUnit());
         produit.setQntiteEnStock(produit.getQntiteEnStock());
-        produit.setNomImage(produit.getNomImage());
+
        Produit prUpdate = produitRepository.save(produit);
        if (prUpdate== null){
            throw new isjException("Imposssible de modifier ,réessayez plustard", Status.NOT_FOUND);
