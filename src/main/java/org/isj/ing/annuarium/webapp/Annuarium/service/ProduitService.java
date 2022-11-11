@@ -36,19 +36,23 @@ public class ProduitService implements Iproduit {
 
 
     @Override
-    public Produit saveProd(Produit produit) throws isjException {
+    public Produit saveProd(Integer idCat , Integer idVnte) throws isjException {
         //File fileP = new File("E:/vente/src/main");
-        //Categorie categorie = categorieRepository.findById(produit.getIdCategorie().getId()).orElseThrow(() -> new isjException(ErrorInfo.CATEGORIE_NOT_FOUND));
-       // Vendeur vendeur = vendeurRepository.findById(produit.getIdVendeur().getId()).get();
-       /* produit.setNomCat(categorie.getNomCat());
+        Produit produit = new Produit();
+        System.out.println("categorie");
+        Categorie categorie = categorieRepository.findById(idCat).orElseThrow(() -> new isjException(ErrorInfo.CATEGORIE_NOT_FOUND));
+        Vendeur vendeur = vendeurRepository.findById(idVnte).orElseThrow(()->new isjException(ErrorInfo.VENDEUR_NOT_FOUND));
+        produit.setNomCat(categorie.getNomCat());
         if (produit.getNomCat()!= categorie.getNomCat()){
             categorie.setNomCat(produit.getNomCat());
             categorieRepository.save(categorie);
-        }*/
+        }
+        produit.setIdVendeur(vendeur);
+
         produit.setId(produit.getId());
-       // produit.setIdVendeur(vendeur);
+
         produit.setSeuil(produit.getSeuil());
-      //  produit.setImageProduit(produit.getImageProduit());
+
         produit.setNomProduit(produit.getNomProduit());
         produit.setPrixUnit(produit.getPrixUnit());
         produit.setQntiteEnStock(produit.getQntiteEnStock());
@@ -63,17 +67,18 @@ public class ProduitService implements Iproduit {
 
     @Override
     public Produit updateProd(Integer id) throws isjException {
-        Categorie c;
-        Produit produit= produitRepository.findById(id).orElseThrow(()->new isjException(ErrorInfo.PRODUIT_NOT_FOUND));
-        /*Categorie categorie = categorieRepository.findById(produit.getIdCategorie().getId()).orElseThrow(()->new isjException(ErrorInfo.CATEGORIE_NOT_FOUND));
-      //  Vendeur vendeur = vendeurRepository.findById(produit.getIdVendeur().getId()).orElseThrow(()->new isjException(ErrorInfo.VENDEUR_NOT_FOUND));
-        produit.setNomCat(categorie.getNomCat());
+
+        Produit produit = new Produit();
+        System.out.println("categorie");
+       // Categorie categorie = categorieRepository.findById(idCat).orElseThrow(() -> new isjException(ErrorInfo.CATEGORIE_NOT_FOUND));
+        //Vendeur vendeur = vendeurRepository.findById(idVnte).orElseThrow(()->new isjException(ErrorInfo.VENDEUR_NOT_FOUND));
+       /* produit.setNomCat(categorie.getNomCat());
         if (produit.getNomCat()!= categorie.getNomCat()){
             categorie.setNomCat(produit.getNomCat());
             categorieRepository.save(categorie);
-        }*/
-      // produit.setIdVendeur(vendeur);
-      // produit.setImageProduit(produit.getImageProduit());
+        }
+      produit.setIdVendeur(vendeur);*/
+
         produit.setNomProduit(produit.getNomProduit());
         produit.setSeuil(produit.getSeuil());
         produit.setPrixUnit(produit.getPrixUnit());

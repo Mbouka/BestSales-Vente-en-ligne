@@ -18,11 +18,11 @@ public class ProduitRestController {
     @Autowired
     private Iproduit iproduit;
 
-    @PostMapping("/save")
-    public String saveProd(Produit produit)throws isjException {
+    @PostMapping("/save/{idCat}/{idVente}")
+    public String saveProd(@PathVariable("idCat")Integer idCat,@PathVariable("idvnte")Integer idvnte)throws isjException {
         try {
-           iproduit.saveProd(produit);
-            System.out.println(iproduit.saveProd(produit));
+           iproduit.saveProd(idCat, idvnte);
+            System.out.println(iproduit.saveProd(idCat, idvnte));
         }catch ( isjException exception){
             System.out.println(exception.getMessage());
             return exception.getMessage();
