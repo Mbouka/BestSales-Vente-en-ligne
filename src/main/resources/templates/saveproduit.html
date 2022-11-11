@@ -94,13 +94,16 @@
             </div>
               <!--<i
                    class="fas fa-cloud-upload-alt tm-upload-icon"
-                    th:src="@{$prd.photoImagePath}"
+
                    onclick="document.getElementById('fileInput').click();"
                  ></i>-->
-              <div class="col-xl-6 col-lg-6 col-md-12 mx-auto mb-4">
+              <div class="col-xl-6 col-lg-6 col-md-12 mx-auto mb-4" th:action="@{/Enregistrer}"
+                    th:object ="${prd}" method="post"
+                   enctype="multipart/form-data"
+              >
                 <div class="tm-product-img-dummy mx-auto">
                     <img
-
+                            th:src="@{$prd.photoImagePath}"
                             alt="upload image"
                             height="100"
                             width="100"

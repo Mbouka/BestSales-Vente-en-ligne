@@ -30,13 +30,13 @@ public class Controlleur {
     }
 
     @GetMapping("/Enregistrer")
-    public String pageenregistrement(Produit prd){
-      /*                               @RequestParam("image")MultipartFile multipartFile)throws IOException {
+    public String pageenregistrement(Produit prd,
+        @RequestParam("image")MultipartFile multipartFile)throws IOException {
         String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
         prd.setNomImage(fileName);
         Produit saveProd = prdRepo.save(prd);
         String uploadDir = "ImageProduit/" + saveProd.getId();
-        FilleUploadUtil.saveFile(uploadDir,fileName,multipartFile);*/
+        FilleUploadUtil.saveFile(uploadDir,fileName,multipartFile);
         return "saveproduit";
     }
 }

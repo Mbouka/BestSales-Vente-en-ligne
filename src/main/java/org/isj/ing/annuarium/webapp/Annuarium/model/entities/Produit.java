@@ -48,11 +48,11 @@ public class Produit implements Serializable {
     @JoinColumn(name = "id_categorie", nullable = false)
     private Categorie idCategorie;
 
-    /*@Transient
+    @Transient
     public String getPhotosImagePath() {
         if (nomImage == null || id == null) return null;
 
         return "/user-photos/" + id + "/" + nomImage;
-    }*/
+    }
 
    }
