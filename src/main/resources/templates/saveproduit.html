@@ -19,13 +19,31 @@
             </div>
             <div class="row tm-edit-product-row">
               <div class="col-xl-6 col-lg-6 col-md-12">
-                <form action="" class="tm-edit-product-form">
+
+                <form th:action="@{/enregistrerproduit}" class="tm-edit-product-form"
+
+                        th:method="post"
+                        th:object="${produit}">
+                    <div class="form-group mb-3">
+                        <label
+                                for="name"
+                        >id
+                        </label>
+                        <input th:field="*{id}"
+                               id="id"
+                               name="id"
+                               type="text"
+                               class="form-control validate"
+
+                        />
+                    </div>
+
                   <div class="form-group mb-3">
                     <label
                       for="name"
                       >Nom Produit
                     </label>
-                    <input
+                    <input th:field="*{nomProduit}"
                       id="name"
                       name="name"
                       type="text"
@@ -65,9 +83,9 @@
                       <div class="form-group mb-3 col-xs-12 col-sm-6">
                           <label
                             for="expire_date"
-                            > Date Produit
+                            > quantite stock
                           </label>
-                          <input
+                          <input th:field="*{qntiteEnStock}"
                             id="expire_date"
                             name="expire_date"
                             type="text"
@@ -78,9 +96,9 @@
                       <div class="form-group mb-3 col-xs-12 col-sm-6">
                           <label
                             for="stock"
-                            >Units In Stock
+                            > Stock
                           </label>
-                          <input
+                          <input th:field="*{seuil}"
                             id="stock"
                             name="stock"
                             type="text"
@@ -89,21 +107,45 @@
                           />
                       </div>
                   </div>
-                </form>
+
               </div>
             </div>
               <!--<i
                    class="fas fa-cloud-upload-alt tm-upload-icon"
-
                    onclick="document.getElementById('fileInput').click();"
                  ></i>-->
-              <div class="col-xl-6 col-lg-6 col-md-12 mx-auto mb-4" th:action="@{/Enregistrer}"
-                    th:object ="${prd}" method="post"
-                   enctype="multipart/form-data"
-              >
+              <div class="d-flex align-items-start align-items-sm-center gap-4">
+                  <img
+                          th:src="@{/assets/img/search.png}"
+                          alt="user-avatar"
+                          class="d-block rounded"
+                          height="100"
+                          width="100"
+                          id="uploadedAvatar"
+                  />
+                  <div class="button-wrapper">
+                      <label for="upload" class="btn btn-primary me-2 mb-4" tabindex="0">
+                          <span class="d-none d-sm-block">Ajouter photo</span>
+                          <i class="bx bx-upload d-block d-sm-none"></i>
+                          <input
+                                  type="file"
+                                  id="upload"
+                                  class="account-file-input"
+                                  hidden
+                                  accept="image/png, image/jpeg"
+                          />
+                      </label>
+                      <button type="button" class="btn btn-outline-secondary account-image-reset mb-4">
+                          <i class="bx bx-reset d-block d-sm-none"></i>
+                          <span class="d-none d-sm-block">Reset</span>
+                      </button>
+
+                  </div>
+              </div>
+             <!-- <div class="col-xl-6 col-lg-6 col-md-12 mx-auto mb-4">
                 <div class="tm-product-img-dummy mx-auto">
                     <img
-                            th:src="@{$prd.photoImagePath}"
+                            th:src="@{/assets/img/search.png}"
                             alt="upload image"
                             height="100"
                             width="100"
@@ -115,18 +157,18 @@
                       <span>ajouter</span>
                       <input
                               type="file"
-                              name="image"
-                              accept="image/png ,image/jpeg"
+                              id="upload"
+                              class="btn btn-primary btn-block mx-auto"
+                              hidden
+                              accept="image/jpeg ,image/png"
                       />
                   </label>
-
-                    <!-- class="btn btn-primary btn-block mx-auto"
-                    onclick="document.getElementById('fileInput').click();"
+                    <!--onclick="document.getElementById('fileInput').click();"
                          value="Ajouter une image"
                          <input id="fileInput" type="file" style="display:none;" />-->
                 </div>
               </div>
-              <div class="col-12">
+              <div class="col-12">-->
                 <button type="submit" class="btn btn-primary btn-block text-uppercase">Enregistrer</button>
               </div>
             </form>

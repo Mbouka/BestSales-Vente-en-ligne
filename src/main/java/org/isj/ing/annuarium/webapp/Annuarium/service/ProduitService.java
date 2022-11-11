@@ -40,7 +40,6 @@ public class ProduitService implements Iproduit {
 
         Categorie categorie = categorieRepository.findById(idCat).orElseThrow(() -> new isjException(ErrorInfo.CATEGORIE_NOT_FOUND));
         Vendeur vendeur = vendeurRepository.findById(idVnte).orElseThrow(()->new isjException(ErrorInfo.VENDEUR_NOT_FOUND));
-
         produit.setId(produit.getId());
         produit.setIdVendeur(vendeur);
         produit.setIdCategorie(categorie);
