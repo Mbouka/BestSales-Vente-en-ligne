@@ -9,8 +9,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class Controlleur {
     @GetMapping("/acceuil")
-    public String pageAccueil(Model model) { return "/index";}
+    public String pageAccueil(Model model) {
+        return "index";
+    }
 
     @GetMapping("/Enregistrer")
-    public String pageenregistrement(Model model) { return "/saveproduit";}
+    public String pageenregistrement(Model model) {
+        return "saveproduit";
+    }
 }

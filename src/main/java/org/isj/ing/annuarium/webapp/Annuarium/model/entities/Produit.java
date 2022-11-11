@@ -16,7 +16,7 @@ import java.util.Set;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@JsonIgnoreProperties(value={"hibernateLazyInitializer"})
+//@JsonIgnoreProperties(value={"hibernateLazyInitializer"})
 public class Produit implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,34 +24,35 @@ public class Produit implements Serializable {
     private Integer id;
 
    // @JsonIgnore
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+   /* @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "id_vendeur", nullable = false)
-    private Vendeur idVendeur;
+    private Vendeur idVendeur;*/
 
-    @Column(name = "prix_unit", nullable = false)
+    @Column(name = "prix_unit")
     private Integer prixUnit;
 
-    @Column(name = "qntite_en_stock", nullable = false)
+    @Column(name = "qntite_en_stock")
     private Integer qntiteEnStock;
 
-    @Column(name = "seuil", nullable = false)
+    @Column(name = "seuil")
     private Integer seuil;
 
-    @Column(name = "nom_produit", nullable = false)
+    @Column(name = "nom_produit")
     private String nomProduit;
 
-    //@JsonIgnore
+    /*@JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "id_categorie", nullable = false)
     private Categorie idCategorie;
 
-
+    @Column(name = "nom_cat")
+    private String nomCat;*/
 
     @Column(name = "nom_image")
     private String nomImage;
 
-    @Column(name = "image_produit")
-    private String imageProduit;
+   /* @Column(name = "image_produit")
+    private String imageProduit;*/
 
 
 

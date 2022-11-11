@@ -12,6 +12,6 @@ public interface Iproduit {
     List<Produit> PRODUIT_LIST (int page, int size);
     String deleteProd (Integer id) throws  isjException;
     Produit findProduitById(Integer id) throws isjException;
-    List<Produit> findProduitByCategorie(Integer idcat,int page, int size) throws  isjException;
-    List<Produit> findProduitByVendeur (Integer idvendeur,int page, int size) throws  isjException;
+   /* List<Produit> findProduitByCategorie(Integer idcat,int page, int size) throws  isjException;
+    List<Produit> findProduitByVendeur (Integer idvendeur,int page, int size) throws  isjException;*/
 }

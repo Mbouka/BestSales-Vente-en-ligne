@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
-<head>
     <th:block th:replace="fragments/_head.html::head"></th:block>
-</head>
+
 
   <body>
-  <header>
+
       <th:block th:replace="fragments/_header.html::header"></th:block>
-  </header>
+
     <!-- <nav class="navbar navbar-expand-xl">
       <div class="container h-100">
         <a class="navbar-brand" href="index.html">
@@ -121,7 +120,7 @@
                   </div>
                   <div class="form-group mb-3">
                     <label
-                      for="description"
+                            for="name"
                       >Description</label
                     >
                     <textarea
@@ -160,8 +159,8 @@
                             class="form-control validate"
                             data-large-mode="true"
                           />
-                        </div>
-                        <div class="form-group mb-3 col-xs-12 col-sm-6">
+                      </div>
+                      <div class="form-group mb-3 col-xs-12 col-sm-6">
                           <label
                             for="stock"
                             >Units In Stock
@@ -173,25 +172,39 @@
                             class="form-control validate"
                             required
                           />
-                        </div>
+                      </div>
                   </div>
-                  
+                </form>
               </div>
+            </div>
+              <!--<i
+                   class="fas fa-cloud-upload-alt tm-upload-icon"
+                   onclick="document.getElementById('fileInput').click();"
+                 ></i>-->
               <div class="col-xl-6 col-lg-6 col-md-12 mx-auto mb-4">
                 <div class="tm-product-img-dummy mx-auto">
-                  <i
-                    class="fas fa-cloud-upload-alt tm-upload-icon"
-                    onclick="document.getElementById('fileInput').click();"
-                  ></i>
+                    <img
+                            th:src="@{/assets/img/search.png}"
+                            alt="upload image"
+                            height="100"
+                            width="100"
+                    />
+
                 </div>
                 <div class="custom-file mt-3 mb-3">
-                  <input id="fileInput" type="file" style="display:none;" />
-                  <input
-                    type="button"
-                    class="btn btn-primary btn-block mx-auto"
-                    value="Ajouter une image"
-                    onclick="document.getElementById('fileInput').click();"
-                  />
+                  <label>
+                      <span>ajouter</span>
+                      <input
+                              type="file"
+                              id="upload"
+                              class="btn btn-primary btn-block mx-auto"
+                              hidden
+                              accept="image/jpeg ,image/png"
+                      />
+                  </label>
+                    <!--onclick="document.getElementById('fileInput').click();"
+                         value="Ajouter une image"
+                         <input id="fileInput" type="file" style="display:none;" />-->
                 </div>
               </div>
               <div class="col-12">
@@ -203,7 +216,6 @@
         </div>
       </div>
     </div>
-    
     <div class="copyright">
         <div class="container">
             <div class="row">
@@ -228,11 +240,10 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
         </div>
     </div>
 
-    <script src="js/jquery-3.3.1.min.js"></script>
+
     <!-- https://jquery.com/download/ -->
-    <script src="jquery-ui-datepicker/jquery-ui.min.js"></script>
     <!-- https://jqueryui.com/download/ -->
-    <script src="js/bootstrap.min.js"></script>
+
     <!-- https://getbootstrap.com/ -->
     <script>
       $(function() {

@@ -22,10 +22,10 @@ public class ProduitRestController {
     public String saveProd(Produit produit)throws isjException {
         try {
            iproduit.saveProd(produit);
-        }catch ( NullPointerException exception){
+            System.out.println(iproduit.saveProd(produit));
+        }catch ( isjException exception){
             System.out.println(exception.getMessage());
             return exception.getMessage();
-
         }
         return "Enregistrement Réussi !";
     }

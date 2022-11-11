@@ -37,14 +37,18 @@ public class ProduitService implements Iproduit {
 
     @Override
     public Produit saveProd(Produit produit) throws isjException {
-        File fileP = new File("E:/vente/src/main");
-        Categorie categorie = categorieRepository.findById(produit.getIdCategorie().getId()).get();
-        Vendeur vendeur = vendeurRepository.findById(produit.getIdVendeur().getId()).get();
-        produit.setIdCategorie(categorie);
+        //File fileP = new File("E:/vente/src/main");
+        //Categorie categorie = categorieRepository.findById(produit.getIdCategorie().getId()).orElseThrow(() -> new isjException(ErrorInfo.CATEGORIE_NOT_FOUND));
+       // Vendeur vendeur = vendeurRepository.findById(produit.getIdVendeur().getId()).get();
+       /* produit.setNomCat(categorie.getNomCat());
+        if (produit.getNomCat()!= categorie.getNomCat()){
+            categorie.setNomCat(produit.getNomCat());
+            categorieRepository.save(categorie);
+        }*/
         produit.setId(produit.getId());
-        produit.setIdVendeur(vendeur);
+       // produit.setIdVendeur(vendeur);
         produit.setSeuil(produit.getSeuil());
-        produit.setImageProduit(produit.getImageProduit());
+      //  produit.setImageProduit(produit.getImageProduit());
         produit.setNomProduit(produit.getNomProduit());
         produit.setPrixUnit(produit.getPrixUnit());
         produit.setQntiteEnStock(produit.getQntiteEnStock());
@@ -59,12 +63,17 @@ public class ProduitService implements Iproduit {
 
     @Override
     public Produit updateProd(Integer id) throws isjException {
+        Categorie c;
         Produit produit= produitRepository.findById(id).orElseThrow(()->new isjException(ErrorInfo.PRODUIT_NOT_FOUND));
-        Categorie categorie = categorieRepository.findById(produit.getIdCategorie().getId()).orElseThrow(()->new isjException(ErrorInfo.CATEGORIE_NOT_FOUND));
-        Vendeur vendeur = vendeurRepository.findById(produit.getIdVendeur().getId()).orElseThrow(()->new isjException(ErrorInfo.VENDEUR_NOT_FOUND));
-        produit.setIdCategorie(categorie);
-       produit.setIdVendeur(vendeur);
-       produit.setImageProduit(produit.getImageProduit());
+        /*Categorie categorie = categorieRepository.findById(produit.getIdCategorie().getId()).orElseThrow(()->new isjException(ErrorInfo.CATEGORIE_NOT_FOUND));
+      //  Vendeur vendeur = vendeurRepository.findById(produit.getIdVendeur().getId()).orElseThrow(()->new isjException(ErrorInfo.VENDEUR_NOT_FOUND));
+        produit.setNomCat(categorie.getNomCat());
+        if (produit.getNomCat()!= categorie.getNomCat()){
+            categorie.setNomCat(produit.getNomCat());
+            categorieRepository.save(categorie);
+        }*/
+      // produit.setIdVendeur(vendeur);
+      // produit.setImageProduit(produit.getImageProduit());
         produit.setNomProduit(produit.getNomProduit());
         produit.setSeuil(produit.getSeuil());
         produit.setPrixUnit(produit.getPrixUnit());
@@ -95,7 +104,7 @@ public class ProduitService implements Iproduit {
         return produitRepository.findById(id).orElseThrow(()->new isjException(ErrorInfo.PRODUIT_NOT_FOUND));
     }
 
-   @Override
+  /* @Override
     public List<Produit> findProduitByCategorie(Integer idcat, int page, int size) throws isjException {
         Categorie categorie=categorieRepository.findById(idcat).orElseThrow(()->new isjException(ErrorInfo.CATEGORIE_NOT_FOUND));
         List<Produit> produitListCat = new ArrayList<>();
@@ -106,9 +115,9 @@ public class ProduitService implements Iproduit {
             }
         }
         return produitListCat;
-    }
+    }*/
 
-    @Override
+   /* @Override
     public List<Produit> findProduitByVendeur(Integer idvendeur, int page, int size) throws isjException {
         Vendeur vendeur=vendeurRepository.findById(idvendeur).orElseThrow(()->new isjException(ErrorInfo.VENDEUR_NOT_FOUND));
         List<Produit> produitListVendeur = new ArrayList<>();
@@ -118,7 +127,7 @@ public class ProduitService implements Iproduit {
             }
         }
         return produitListVendeur;
-    }
+    }*/
 
 
 }
