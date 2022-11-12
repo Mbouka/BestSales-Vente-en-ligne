@@ -2284,3 +2284,13 @@ select option
 {
 	margin-right: 0px;
 }
+
+
+
+.icon{
+ display: flex;
+  flex-direction: row;
+  justify-content: right;
+  gap: 100px;
+  margin: 20px auto!important;
+}

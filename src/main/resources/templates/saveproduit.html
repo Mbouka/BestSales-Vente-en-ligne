@@ -24,6 +24,7 @@
 
                         th:method="post"
                         th:object="${produit}">
+                    <div class="icon">
                     <div class="form-group mb-3">
                         <label
                                 for="name"
@@ -37,8 +38,40 @@
 
                         />
                     </div>
+                    <div class="col-xl-8 col-lg-12 col-md-12 mx-auto mb-4" style="
+    margin-right: -350px!important;
+">
 
-                  <div class="form-group mb-3">
+                        <div class="tm-product-img-dummy mx-auto"  >
+                            <img
+                                    th:src="@{/assets/img/search.png}"
+                                    alt="upload image"
+                                    height="100"
+                                    width="100"
+                            />
+
+                        </div>
+                        <div class="button-wrapper">
+                            <label for="upload" class="btn btn-primary me-2 mb-4" tabindex="0">
+                                <span class="d-none d-sm-block">Ajouter photo</span>
+                                <i class="bx bx-upload d-block d-sm-none"></i>
+                                <input
+                                        type="file"
+                                        id="upload"
+                                        class="account-file-input"
+                                        hidden
+                                        accept="image/png, image/jpeg"
+                                />
+                            </label>
+                        </div>
+                    </div>
+              </div>
+
+
+                  <div class="form-group mb-3" style="
+    margin-buttom: 50px!important;
+    margin-top: -237px!important;
+">
                     <label
                       for="name"
                       >Nom Produit
@@ -107,41 +140,15 @@
                           />
                       </div>
                   </div>
-
+                </form>
               </div>
             </div>
               <!--<i
                    class="fas fa-cloud-upload-alt tm-upload-icon"
                    onclick="document.getElementById('fileInput').click();"
                  ></i>-->
-              <div class="d-flex align-items-start align-items-sm-center gap-4">
-                  <img
-                          th:src="@{/assets/img/search.png}"
-                          alt="user-avatar"
-                          class="d-block rounded"
-                          height="100"
-                          width="100"
-                          id="uploadedAvatar"
-                  />
-                  <div class="button-wrapper">
-                      <label for="upload" class="btn btn-primary me-2 mb-4" tabindex="0">
-                          <span class="d-none d-sm-block">Ajouter photo</span>
-                          <i class="bx bx-upload d-block d-sm-none"></i>
-                          <input
-                                  type="file"
-                                  id="upload"
-                                  class="account-file-input"
-                                  hidden
-                                  accept="image/png, image/jpeg"
-                          />
-                      </label>
-                      <button type="button" class="btn btn-outline-secondary account-image-reset mb-4">
-                          <i class="bx bx-reset d-block d-sm-none"></i>
-                          <span class="d-none d-sm-block">Reset</span>
-                      </button>
 
-                  </div>
-              </div>
+
              <!-- <div class="col-xl-6 col-lg-6 col-md-12 mx-auto mb-4">
                 <div class="tm-product-img-dummy mx-auto">
                     <img
@@ -163,12 +170,12 @@
                               accept="image/jpeg ,image/png"
                       />
                   </label>
-                    <!--onclick="document.getElementById('fileInput').click();"
+                   onclick="document.getElementById('fileInput').click();"
                          value="Ajouter une image"
                          <input id="fileInput" type="file" style="display:none;" />-->
-                </div>
-              </div>
-              <div class="col-12">-->
+              <!--</div>
+           </div>-->
+           <div class="col-12">
                 <button type="submit" class="btn btn-primary btn-block text-uppercase">Enregistrer</button>
               </div>
             </form>
