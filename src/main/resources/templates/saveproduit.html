@@ -84,6 +84,20 @@
                       required
                     />
                   </div>
+
+                    <div class="form-group mb-3">
+                        <label
+                                for="name"
+                        >prix unitaire
+                        </label>
+                        <input th:field="*{prixUnit}"
+                               id="prix"
+                               name="name"
+                               type="text"
+                               class="form-control validate"
+                               required
+                        />
+                    </div>
                   <div class="form-group mb-3">
                     <label
                             for="name"
@@ -140,8 +154,36 @@
                           />
                       </div>
                   </div>
-                </form>
-              </div>
+
+                <div class="row">
+                    <div class="form-group mb-3 col-xs-12 col-sm-6">
+                        <label
+                                for="expire_date"
+                        > categorie
+                        </label>
+                        <input th:field="*{idCategorie}"
+                               id="idcat"
+                               name="expire_date"
+                               type="text"
+                               class="form-control validate"
+                               data-large-mode="true"
+                        />
+                    </div>
+                    <div class="form-group mb-3 col-xs-12 col-sm-6">
+                        <label
+                                for="stock"
+                        > vendeur
+                        </label>
+                        <input th:field="*{idVendeur}"
+                               id="idvendeur"
+                               name="stock"
+                               type="text"
+                               class="form-control validate"
+                               required
+                        />
+                    </div>
+                </div>
+                </div>
             </div>
               <!--<i
                    class="fas fa-cloud-upload-alt tm-upload-icon"

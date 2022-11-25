@@ -35,12 +35,13 @@ public class ProduitController {
     }
 
     @PostMapping("/enregistrerproduit")
-    public String enregistrerMateriel(@ModelAttribute Produit produit ,Integer idCat, Integer idvnte) throws isjException {
+    public String enregistrerMateriel(@ModelAttribute Produit produit) throws isjException {
 
         ProduitController.log.info("enregistrer-produit");
         // appel de la couche service ou metier injectée pour enregistrer un materiel
-        iProduit.saveProd(idCat,idvnte,produit);
-        return "redirect:index";
+//        iProduit.saveProd(idCat,idvnte,produit);ce qui a ete modifie avec vinny
+        iProduit.saveProd(produit);
+        return "redirect:Listes";
     }
 
 }

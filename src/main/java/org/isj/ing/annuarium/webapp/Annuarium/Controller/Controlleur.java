@@ -40,5 +40,10 @@ public class Controlleur {
         FilleUploadUtil.saveFile(uploadDir,fileName,multipartFile);*/
         return "saveproduit";
     }
+
+    @GetMapping("/Listes")
+    public String pageListeProduit(Model model) {
+        return "listeproduit";
+    }
 }
 

@@ -21,12 +21,14 @@ public class ProduitRestController {
     @PostMapping("/save/{idCat}/{idvnte}")
     public String saveProd(@RequestBody Produit prd,@PathVariable("idCat")Integer idCat,@PathVariable("idvnte")Integer idvnte)throws isjException {
         try {
-           iproduit.saveProd(idCat, idvnte,prd);
+//           iproduit.saveProd(idCat, idvnte,prd); ce qui a ete modifie avec vinny
+            iproduit.saveProd(prd);
 
         }catch ( isjException exception){
 
             return exception.getMessage();
         }
+
         return "Enregistrement Réussi !";
     }
 

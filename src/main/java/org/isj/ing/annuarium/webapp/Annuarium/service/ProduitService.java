@@ -36,13 +36,15 @@ public class ProduitService implements Iproduit {
 
 
     @Override
-    public Produit saveProd(Integer idCat , Integer idVnte ,Produit produit) throws isjException {
-
-        Categorie categorie = categorieRepository.findById(idCat).orElseThrow(() -> new isjException(ErrorInfo.CATEGORIE_NOT_FOUND));
-        Vendeur vendeur = vendeurRepository.findById(idVnte).orElseThrow(()->new isjException(ErrorInfo.VENDEUR_NOT_FOUND));
+    public Produit saveProd(Produit produit) throws isjException {
+        //ce qui a ete modifie avec vinny
+//        Categorie categorie = categorieRepository.findById(idCat).orElseThrow(() -> new isjException(ErrorInfo.CATEGORIE_NOT_FOUND));
+//        Vendeur vendeur = vendeurRepository.findById(idVnte).orElseThrow(()->new isjException(ErrorInfo.VENDEUR_NOT_FOUND));
         produit.setId(produit.getId());
-        produit.setIdVendeur(vendeur);
-        produit.setIdCategorie(categorie);
+//        produit.setIdVendeur(vendeur);ce qui a ete modifie avec vinny
+//        produit.setIdCategorie(categorie);ce qui a ete modifie avec vinny
+        produit.setIdVendeur(produit.getIdVendeur());
+        produit.setIdCategorie(produit.getIdCategorie());
         produit.setNomProduit(produit.getNomProduit());
         produit.setSeuil(produit.getSeuil());
         produit.setPrixUnit(produit.getPrixUnit());
