@@ -23,6 +23,9 @@ public class AnnuariumApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		/*categorieRepository.save(new Categorie(null,"electro-ménagé"));
 		categorieRepository.save(new Categorie(null,"cuisine"));
+		categorieRepository.save(new Categorie(null,"mode"));
+		categorieRepository.save(new Categorie(null,"mécanique"));
+		categorieRepository.save(new Categorie(null,"voyage"));
 
 		vendeurRepository.save(new Vendeur(null,"vinny",69823688L,null,null,null));
 		vendeurRepository.save(new Vendeur(null,"jay",6948202L,null,null,null));*/

@@ -29,12 +29,9 @@ public class CategorieRestController {
         }
         return "enregistrement réussi";
     }
-    @GetMapping("/all/{page}/{size}")
-    public ResponseEntity<List<Categorie>>listCat(
-            @PathVariable("page")int page,
-            @PathVariable("size")int size
-    ){
-        return ResponseEntity.ok(icategorie.listCat(page, size));
+    @GetMapping("/all")
+    public ResponseEntity<List<Categorie>>listCat(){
+        return ResponseEntity.ok(icategorie.listCat());
     }
 
     @PutMapping("/update/{id}")

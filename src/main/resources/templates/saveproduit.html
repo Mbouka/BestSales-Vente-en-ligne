@@ -25,19 +25,6 @@
                         th:method="post"
                         th:object="${produit}">
                     <div class="icon">
-                    <div class="form-group mb-3">
-                        <label
-                                for="name"
-                        >id
-                        </label>
-                        <input th:field="*{id}"
-                               id="id"
-                               name="id"
-                               type="text"
-                               class="form-control validate"
-
-                        />
-                    </div>
                     <div class="col-xl-8 col-lg-12 col-md-12 mx-auto mb-4" style="
     margin-right: -350px!important;
 ">
@@ -53,7 +40,7 @@
                         </div>
                         <div class="button-wrapper">
                             <label for="upload" class="btn btn-primary me-2 mb-4" tabindex="0">
-                                <span class="d-none d-sm-block">Ajouter photo</span>
+                                <span class="d-none d-sm-block">Ajouter une photo</span>
                                 <i class="bx bx-upload d-block d-sm-none"></i>
                                 <input
                                         type="file"
@@ -74,7 +61,7 @@
 ">
                     <label
                       for="name"
-                      >Nom Produit
+                      >Nom du  Produit
                     </label>
                     <input th:field="*{nomProduit}"
                       id="name"
@@ -88,7 +75,7 @@
                     <div class="form-group mb-3">
                         <label
                                 for="name"
-                        >prix unitaire
+                        >Prix Unitaire
                         </label>
                         <input th:field="*{prixUnit}"
                                id="prix"
@@ -104,33 +91,29 @@
                       >Description</label
                     >
                     <textarea
+                            th:field="*{description}"
                       class="form-control validate"
                       rows="3"
                       required
                     ></textarea>
                   </div>
-                  <div class="form-group mb-3">
+                  <div class="form-group mb-3" >
                     <label
                       for="category"
-                      >Categories</label
+                      >Categorie</label
                     >
-                    <select
+                    <select th:field="*{nomCat}"
                       class="custom-select tm-select-accounts"
-                      id="category"
+                      id="categorie"
                     >
-                      <option selected>Selectionner Categories</option>
-                      <option value="1">Alimentaires</option>
-                      <option value="2">Shopping</option>
-                      <option value="3">Meubles</option>
-                      <option value="4">Electromenagers</option>
-                      <option value="5">Electroniques</option>
+                      <option  th:each="categorie:${cat}" th:value="${categorie.nomCat}" th:text="${categorie.nomCat}">nh</option>
                     </select>
                   </div>
                   <div class="row">
                       <div class="form-group mb-3 col-xs-12 col-sm-6">
                           <label
-                            for="expire_date"
-                            > quantite stock
+
+                            > Quantité en stock
                           </label>
                           <input th:field="*{qntiteEnStock}"
                             id="expire_date"
@@ -143,7 +126,7 @@
                       <div class="form-group mb-3 col-xs-12 col-sm-6">
                           <label
                             for="stock"
-                            > Stock
+                            > Quantité Seuil
                           </label>
                           <input th:field="*{seuil}"
                             id="stock"
@@ -155,34 +138,6 @@
                       </div>
                   </div>
 
-                <div class="row">
-                    <div class="form-group mb-3 col-xs-12 col-sm-6">
-                        <label
-                                for="expire_date"
-                        > categorie
-                        </label>
-                        <input th:field="*{idCategorie}"
-                               id="idcat"
-                               name="expire_date"
-                               type="text"
-                               class="form-control validate"
-                               data-large-mode="true"
-                        />
-                    </div>
-                    <div class="form-group mb-3 col-xs-12 col-sm-6">
-                        <label
-                                for="stock"
-                        > vendeur
-                        </label>
-                        <input th:field="*{idVendeur}"
-                               id="idvendeur"
-                               name="stock"
-                               type="text"
-                               class="form-control validate"
-                               required
-                        />
-                    </div>
-                </div>
                 </div>
             </div>
               <!--<i
@@ -225,29 +180,6 @@
           </div>
         </div>
       </div>
-    </div>
-    <div class="copyright">
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    
-                    <div class="copyright_container d-flex flex-sm-row flex-column align-items-center justify-content-start">
-                        <div class="copyright_content"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">BESTSALES</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-</div>
-                        <div class="logos ml-sm-auto">
-                            <ul class="logos_list">
-                                <li><a th:href="@{/#}"><img th:src="@{img/logos_1.png}" alt=""></a></li>
-                                <li><a th:href="@{/#}"><img th:src="@{img/logos_2.png}" alt=""></a></li>
-                                <li><a th:href="@{/#}"><img th:src="@{img/logos_3.png}" alt=""></a></li>
-                                <li><a th:href="@{/#}"><img th:src="@{img/logos_4.png}" alt=""></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 
 

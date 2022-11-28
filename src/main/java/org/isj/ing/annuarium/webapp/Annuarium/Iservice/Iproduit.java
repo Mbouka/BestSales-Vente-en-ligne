@@ -9,8 +9,10 @@ import java.util.List;
 public interface Iproduit {
 //    Produit saveProd(Integer idCat , Integer idVnte ,Produit produit) throws isjException; ce qui a ete modifie avec vinny
 Produit saveProd(Produit produit) throws isjException;
-    Produit updateProd(Integer id) throws  isjException;
+    Produit updateProd(Integer id,Produit produit) throws  isjException;
     List<Produit> PRODUIT_LIST (int page, int size);
+    List<Produit> listProduit();
+    Long countProduit();
     String deleteProd (Integer id) throws  isjException;
     Produit findProduitById(Integer id) throws isjException;
    /* List<Produit> findProduitByCategorie(Integer idcat,int page, int size) throws  isjException;

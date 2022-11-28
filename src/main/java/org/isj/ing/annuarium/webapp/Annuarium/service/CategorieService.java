@@ -43,8 +43,8 @@ public class CategorieService implements Icategorie {
     }
 
     @Override
-    public List<Categorie> listCat(int page, int size) {
-        List<Categorie> list = categorieRepository.findAll(PageRequest.of(page, size)).toList();
+    public List<Categorie> listCat() {
+        List<Categorie> list = categorieRepository.findAll();
         return list;
     }
 

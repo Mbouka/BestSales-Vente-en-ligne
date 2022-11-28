@@ -1,16 +1,17 @@
 package org.isj.ing.annuarium.webapp.Annuarium.presentation.controller;
 
 import lombok.extern.slf4j.Slf4j;
+import org.isj.ing.annuarium.webapp.Annuarium.Iservice.Icategorie;
 import org.isj.ing.annuarium.webapp.Annuarium.Iservice.Iproduit;
 import org.isj.ing.annuarium.webapp.Annuarium.error.isjException;
+import org.isj.ing.annuarium.webapp.Annuarium.model.entities.Categorie;
 import org.isj.ing.annuarium.webapp.Annuarium.model.entities.Produit;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestAttribute;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 
 @Controller
@@ -19,6 +20,8 @@ public class ProduitController {
 
     @Autowired
     Iproduit iProduit;
+    @Autowired
+    private Icategorie icategorie;
 
     @GetMapping("/")
     public String pageAccueil(Model model) {
@@ -30,6 +33,10 @@ public class ProduitController {
     @GetMapping("/enregistrerproduitform")
     public String enregistrerProduitForm( Model model) {
         Produit produit=  new Produit();
+        List<Categorie> cat=icategorie.listCat();
+        model.addAttribute("cat",cat);
+        model.addAttribute("testons","testons");
+        System.out.println(cat);
         model.addAttribute("produit",produit);
         return "saveproduit";
     }
@@ -44,4 +51,19 @@ public class ProduitController {
         return "redirect:Listes";
     }
 
+    @GetMapping("/Listes")
+    public String pageListeProduit(Model model)  {
+        List<Produit> prd =iProduit.listProduit();
+       List<Categorie> cat= icategorie.listCat();
+        model.addAttribute("cat",cat);
+        model.addAttribute("prd",prd);
+        return "listeproduit";
+    }
+
+    @GetMapping("/detail")
+    public String pageDetail(@RequestParam(name ="id")Integer id,Model model) throws isjException {
+        Produit prd = iProduit.findProduitById(id);
+        model.addAttribute("prd",prd);
+        return "details";
+    }
 }

@@ -32,19 +32,23 @@ public class ProduitRestController {
         return "Enregistrement Réussi !";
     }
 
-    @GetMapping("/all/{page}/{size}")
+   /* @GetMapping("/all/{page}/{size}")
     public ResponseEntity<List<Produit>>LIST(
             @PathVariable("page")int page,
             @PathVariable("size") int size
     ){
         System.out.println(iproduit.PRODUIT_LIST(page, size));
         return ResponseEntity.ok(iproduit.PRODUIT_LIST(page, size));
+    }*/
+    @GetMapping("/all")
+    public ResponseEntity<List<Produit>>list()  {
+        return ResponseEntity.ok(iproduit.listProduit());
     }
 
     @GetMapping("/update/{id}")
-    public String updateProd(@PathVariable("id") Integer id)throws isjException{
+    public String updateProd(@PathVariable("id") Integer id, @RequestBody Produit prd)throws isjException{
         try {
-            iproduit.updateProd(id);
+            iproduit.updateProd(id,prd);
         }catch (isjException i){
             return i.getMessage();
         }
@@ -69,6 +73,11 @@ public class ProduitRestController {
       }
     }
 
+    @GetMapping("/count")
+    public ResponseEntity<Long>CountProduit(){
+
+        return ResponseEntity.ok((iproduit.countProduit()));
+    }
    /* @GetMapping("/all/{id}/{page}/{size}")
     public ResponseEntity<List<Produit>>ListCat(
             @PathVariable("page")int page,

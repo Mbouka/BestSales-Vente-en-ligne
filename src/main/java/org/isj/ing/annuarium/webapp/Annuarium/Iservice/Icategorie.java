@@ -9,7 +9,7 @@ import java.util.List;
 public interface Icategorie {
   Categorie saveCat(Categorie cat) throws isjException;
   Categorie updateCat(Categorie cat) throws  isjException;
-  List<Categorie> listCat (int page, int size);
+  List<Categorie> listCat ();
   Categorie findCat(Integer id) throws isjException;
   Categorie searchNom(String nom) throws isjException;
   String deleteCat (Integer id) throws  isjException;

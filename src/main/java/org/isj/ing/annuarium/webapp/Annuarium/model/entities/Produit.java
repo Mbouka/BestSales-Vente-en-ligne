@@ -39,8 +39,14 @@ public class Produit implements Serializable {
     @Column(name = "nom_image")
     private String nomImage;
 
+    @Column(name = "nom_cat")
+    private String nomCat;
+
+    @Column(name = "description")
+    private String description;
+
     // @JsonIgnore
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+   /* @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "id_vendeur", nullable = false)
     private Vendeur idVendeur;
 
@@ -48,7 +54,7 @@ public class Produit implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "id_categorie", nullable = false)
     private Categorie idCategorie;
-
+*/
     /*@Transient
     public String getPhotosImagePath() {
         if (nomImage == null || id == null) return null;

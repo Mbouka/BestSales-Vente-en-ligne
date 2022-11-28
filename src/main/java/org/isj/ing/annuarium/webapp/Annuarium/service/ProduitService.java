@@ -37,19 +37,13 @@ public class ProduitService implements Iproduit {
 
     @Override
     public Produit saveProd(Produit produit) throws isjException {
-        //ce qui a ete modifie avec vinny
-//        Categorie categorie = categorieRepository.findById(idCat).orElseThrow(() -> new isjException(ErrorInfo.CATEGORIE_NOT_FOUND));
-//        Vendeur vendeur = vendeurRepository.findById(idVnte).orElseThrow(()->new isjException(ErrorInfo.VENDEUR_NOT_FOUND));
         produit.setId(produit.getId());
-//        produit.setIdVendeur(vendeur);ce qui a ete modifie avec vinny
-//        produit.setIdCategorie(categorie);ce qui a ete modifie avec vinny
-        produit.setIdVendeur(produit.getIdVendeur());
-        produit.setIdCategorie(produit.getIdCategorie());
         produit.setNomProduit(produit.getNomProduit());
         produit.setSeuil(produit.getSeuil());
         produit.setPrixUnit(produit.getPrixUnit());
         produit.setQntiteEnStock(produit.getQntiteEnStock());
         produit.setNomImage(produit.getNomImage());
+        produit.setDescription(produit.getDescription());
         Produit prsave = produitRepository.save(produit);
 
         if (prsave == null){
@@ -59,15 +53,14 @@ public class ProduitService implements Iproduit {
     }
 
     @Override
-    public Produit updateProd(Integer id) throws isjException {
+    public Produit updateProd(Integer id,Produit produit) throws isjException {
 
-        Produit produit = new Produit();
-        System.out.println("categorie");
         produit.setNomProduit(produit.getNomProduit());
         produit.setNomImage(produit.getNomImage());
         produit.setSeuil(produit.getSeuil());
         produit.setPrixUnit(produit.getPrixUnit());
         produit.setQntiteEnStock(produit.getQntiteEnStock());
+        produit.setDescription(produit.getDescription());
 
        Produit prUpdate = produitRepository.save(produit);
        if (prUpdate== null){
@@ -80,6 +73,17 @@ public class ProduitService implements Iproduit {
     public List<Produit> PRODUIT_LIST(int page, int size) {
         List<Produit> produitList = produitRepository.findAll(PageRequest.of(page, size)).toList();
         return produitList;
+    }
+
+    @Override
+    public List<Produit> listProduit()  {
+        List<Produit> prdList = produitRepository.findAll();
+        return prdList;
+    }
+
+    @Override
+    public Long countProduit() {
+        return produitRepository.count();
     }
 
     @Override
