@@ -7,7 +7,7 @@ import org.isj.ing.annuarium.webapp.Annuarium.model.entities.Produit;
 import java.util.List;
 
 public interface Iproduit {
-//    Produit saveProd(Integer idCat , Integer idVnte ,Produit produit) throws isjException; ce qui a ete modifie avec vinny
+
 Produit saveProd(Produit produit) throws isjException;
     Produit updateProd(Integer id,Produit produit) throws  isjException;
     List<Produit> PRODUIT_LIST (int page, int size);
