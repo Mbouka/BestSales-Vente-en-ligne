@@ -66,4 +66,10 @@ public class ProduitController {
         model.addAttribute("prd",prd);
         return "details";
     }
+
+    @GetMapping("/carts")
+    public String pageCart(Model model) {
+
+        return "cart";
+    }
 }
