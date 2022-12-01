@@ -29,35 +29,4 @@ public class Commandeproduit {
     @JoinColumn(name = "id_livraison", nullable = false)
     private Livraison idLivraison;
 
-    public Livraison getIdLivraison() {
-        return idLivraison;
-    }
-
-    public void setIdLivraison(Livraison idLivraison) {
-        this.idLivraison = idLivraison;
-    }
-
-    public Produit getIdProduit() {
-        return idProduit;
-    }
-
-    public void setIdProduit(Produit idProduit) {
-        this.idProduit = idProduit;
-    }
-
-    public Commande getIdCommande() {
-        return idCommande;
-    }
-
-    public void setIdCommande(Commande idCommande) {
-        this.idCommande = idCommande;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 }

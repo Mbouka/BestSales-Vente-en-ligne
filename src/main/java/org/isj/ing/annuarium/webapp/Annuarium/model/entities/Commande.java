@@ -20,12 +20,12 @@ public class Commande {
     @Column(name = "id_commande", nullable = false)
     private Integer id;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "id_client", nullable = false)
-    private Customer idClient;
 
     @Column(name = "date_com", nullable = false)
     private LocalDate dateCom;
+
+    @Column(name = "nomClient", nullable = false)
+    private String nomClient;
 
     @OneToMany(mappedBy = "idCommande")
     private Set<Commandeproduit> commandeproduits = new LinkedHashSet<>();
@@ -57,13 +57,7 @@ public class Commande {
         this.dateCom = dateCom;
     }
 
-    public Customer getIdClient() {
-        return idClient;
-    }
 
-    public void setIdClient(Customer idClient) {
-        this.idClient = idClient;
-    }
 
     public Integer getId() {
         return id;
