@@ -68,8 +68,10 @@ public class ProduitController {
     }
 
     @GetMapping("/carts")
-    public String pageCart(Model model) {
+    public String pageCart(@RequestParam(name ="id")Integer id,Model model) throws isjException{
 
+        Produit prd = iProduit.findProduitById(id);
+        model.addAttribute("prd",prd);
         return "cart";
     }
 }

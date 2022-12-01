@@ -2302,3 +2302,9 @@ select option
 	color:#0e8ce4 ;
 	margin-bottom: 50px;
 }
+.pro-title1{
+  font-size: 25px;
+    font-family: cursive;
+    font-style: italic;
+    font-weight: bold;
+}

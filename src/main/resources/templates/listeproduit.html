@@ -85,8 +85,10 @@
                                 <div th:text="${produit.nomProduit}" class="product_name">
                                     Philips BT6900A
                                 </div>
-                                <div>
+                                <div style="display: flex; gap: 25px!important; justify-content: center;">
                                     <a th:href="@{'/detail?id=' + ${produit.id}}" tabindex="0"><i class="ri-eye-fill"
+                                                                                                  style="color: #0e8ce4;"></i></a>
+                                    <a th:href="@{'/carts?id=' + ${produit.id}}" tabindex="0"><i class="bi bi-cart"
                                                                                                   style="color: #0e8ce4;"></i></a>
 
                                 </div>
