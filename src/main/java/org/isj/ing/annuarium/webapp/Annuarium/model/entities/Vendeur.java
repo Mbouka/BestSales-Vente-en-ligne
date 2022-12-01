@@ -37,6 +37,9 @@ public class Vendeur implements Serializable {
     @Column(name = "email")
     private String email;
 
+    @Column(name = "entreprise")
+    private String entrprise;
+
     /*@OneToMany(mappedBy = "idVendeur")
     private Set<Produit> produits = new LinkedHashSet<>();*/
 

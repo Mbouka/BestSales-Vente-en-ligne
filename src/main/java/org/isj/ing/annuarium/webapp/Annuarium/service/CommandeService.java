@@ -26,10 +26,11 @@ public class CommandeService implements Icommande {
     CustomerRepository customerRepository;
 
     @Override
-    public Commande saveCommande(Commande cmd, Customer client) throws isjException {
+    public Commande saveCommande(Commande cmd) throws isjException {
         cmd.setId(cmd.getId());
-        cmd.setNomClient(client.getNomComplet());
+
         cmd.setDateCom(LocalDate.now());
+
         Commande cmdSave = commandeRepository.save(cmd);
         if (cmdSave== null){
             throw new isjException("Imposssible d'enregister ,réessayez plustard", Status.NOT_FOUND);
@@ -37,10 +38,18 @@ public class CommandeService implements Icommande {
         return cmdSave;
     }
 
-    @Override
+    /*@Override
     public Commande updateCommande(Integer id, Commande cmd) throws isjException {
+        cmd.setId(cmd.getId());
+        cmd.setNomClient(client.getNomComplet());
+        cmd.setDateCom(LocalDate.now());
+        cmd.setIdClient(client);
+        Commande cmdSave = commandeRepository.save(cmd);
+        if (cmdSave== null){
+            throw new isjException("Imposssible d'enregister ,réessayez plustard", Status.NOT_FOUND);
+        }
         return null;
-    }
+    }*/
 
     @Override
     public List<Commande> listCommande() {
@@ -50,7 +59,8 @@ public class CommandeService implements Icommande {
 
     @Override
     public String deleteCommande(Integer id) throws isjException {
-        return null;
+        commandeRepository.deleteById(id);
+        return "Commande supprimer avec succés";
     }
 
     @Override

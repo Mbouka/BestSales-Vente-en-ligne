@@ -18,10 +18,9 @@ public class ProduitRestController {
     @Autowired
     private Iproduit iproduit;
 
-    @PostMapping("/save/{idCat}/{idvnte}")
-    public String saveProd(@RequestBody Produit prd,@PathVariable("idCat")Integer idCat,@PathVariable("idvnte")Integer idvnte)throws isjException {
+    @PostMapping("/save")
+    public String saveProd(@RequestBody Produit prd)throws isjException {
         try {
-//           iproduit.saveProd(idCat, idvnte,prd); ce qui a ete modifie avec vinny
             iproduit.saveProd(prd);
 
         }catch ( isjException exception){

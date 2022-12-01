@@ -24,8 +24,7 @@ public class Commande {
     @Column(name = "date_com", nullable = false)
     private LocalDate dateCom;
 
-    @Column(name = "nomClient", nullable = false)
-    private String nomClient;
+
 
     @OneToMany(mappedBy = "idCommande")
     private Set<Commandeproduit> commandeproduits = new LinkedHashSet<>();

@@ -33,6 +33,7 @@ public class ProduitController {
     @GetMapping("/enregistrerproduitform")
     public String enregistrerProduitForm( Model model) {
         Produit produit=  new Produit();
+        produit.setPrixUnit("FRS CFA");
         List<Categorie> cat=icategorie.listCat();
         model.addAttribute("cat",cat);
         model.addAttribute("testons","testons");
@@ -73,5 +74,11 @@ public class ProduitController {
         Produit prd = iProduit.findProduitById(id);
         model.addAttribute("prd",prd);
         return "cart";
+    }
+
+    @GetMapping("/livraison")
+    public String pageLivraison(Model model) {
+
+        return "livraison";
     }
 }

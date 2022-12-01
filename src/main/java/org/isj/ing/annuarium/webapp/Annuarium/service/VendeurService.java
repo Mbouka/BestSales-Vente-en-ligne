@@ -30,6 +30,7 @@ public class VendeurService implements Ivendeur {
         vend.setQuartier(vend.getQuartier());
         vend.setTel(vend.getTel());
         vend.setVille(vend.getVille());
+        vend.setEntrprise(vend.getEntrprise());
        Vendeur vendeurSave= vendeurRepository.save(vend);
         if (vendeurSave==null){
             throw new isjException("Imposssible d'enregister ,réessayez plustard", Status.NOT_FOUND);
@@ -46,6 +47,7 @@ public class VendeurService implements Ivendeur {
         vend.setQuartier(vend.getQuartier());
         vend.setTel(vend.getTel());
         vend.setVille(vend.getVille());
+        vend.setEntrprise(vend.getEntrprise());
         Vendeur vendUpdate = vendeurRepository.save(vend);
         if (vendUpdate==null){
             throw new isjException("Imposssible d'enregister ,réessayez plustard", Status.NOT_FOUND);

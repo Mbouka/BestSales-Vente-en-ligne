@@ -48,7 +48,8 @@ public class CommandeproduitService implements IcommandeProduit {
 
     @Override
     public String deletCmdPrd(Integer id) throws isjException {
-        return null;
+        commandeproduitRepository.deleteById(id);
+        return "suppression reussi";
     }
 
     @Override

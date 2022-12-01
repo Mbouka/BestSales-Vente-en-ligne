@@ -1,0 +1,147 @@
+        <!DOCTYPE html>
+        <html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+            <th:block th:replace="fragments/_head.html::head"></th:block>
+
+
+          <body>
+
+              <th:block th:replace="fragments/_header.html::header"></th:block>
+
+              <div class="container tm-mt-big tm-mb-big">
+                  <div class="row">
+                      <div class="col-xl-9 col-lg-10 col-md-12 col-sm-12 mx-auto">
+                          <div class="tm-bg-primary-dark tm-block tm-block-h-auto">
+                              <div class="row">
+                                  <div class="col-12">
+                                      <h3  class="title-save"    style="color: #0e8ce4;"
+                                      >OU VOULEZ VOUS ,VOUS FAIRE LIVRER ??<span th:text="${liv.client}"></span> </h3>
+                                  </div>
+                              </div>
+                              <div class="row tm-edit-product-row">
+                                  <div class="col-xl-6 col-lg-6 col-md-12">
+                                      <div class="form-group">
+                                          <p  class="form-label" >La Livraison vous coutera <span th:text="${liv.prixLiv}"></span></p>
+                                      </div>
+                                      <form
+                                            th:action="@{/enregistrerlivraison}"
+                                            th:method="post"
+                                            th:object="${liv}"
+                                            class="tm-edit-product-form">
+
+                                          <div class="icon">
+                                              <div class="col-xl-8 col-lg-12 col-md-12 mx-auto mb-4" style="
+        margin-right: -350px!important;
+    ">
+
+
+                                                  <div class="button-wrapper" style="
+        text-align: center;
+        margin-top: 10px;
+    ">
+                                                      <label for="upload" class="btn btn-primary me-2 mb-4" tabindex="0">
+                                                          <span class="d-none d-sm-block">Ajouter une photo</span>
+                                                          <i class="bx bx-upload d-block d-sm-none"></i>
+                                                          <input
+                                                                  type="file"
+                                                                  id="upload"
+                                                                  class="account-file-input"
+                                                                  hidden
+                                                                  accept="image/png, image/jpeg"
+                                                          />
+                                                      </label>
+                                                  </div>
+                                              </div>
+                                          </div>
+
+
+                                          <div class="form-group">
+                                              <label  class="form-label">Entrer une date butoire</label>
+                                              <input  name="dateLiv" type="date" class="form-control" id="exampleInputUsername1" placeholder="DATE" th:field="*{dateLiv}">
+                                          </div>
+
+
+                                          <div class="form-group mb-3" >
+                                              <label
+                                              >Nom
+                                              </label>
+                                              <input th:field="*{client}"
+                                                     name="client"
+                                                     type="text"
+                                                     class="form-control validate"
+                                                     placeholder="Entrer votre nom"
+                                                     required
+                                              />
+                                          </div>
+
+                                          <div class="form-group mb-3">
+                                              <label
+                                              >Ville</label
+                                              >
+                                              <input th:field="*{ville}"
+                                                      class="form-control validate"
+                                                      type="text"
+                                                      name="ville"
+                                                      placeholder="Dans quelle ville habité vous ?"
+                                                      required
+                                              />
+                                          </div>
+
+                                          <div class="row">
+                                              <div class="form-group mb-3 col-xs-12 col-sm-6">
+                                                  <label
+                                                  >Quartier
+                                                  </label>
+                                                  <input th:field="*{quartier}"
+                                                          name="quartier"
+                                                          type="text"
+                                                          class="form-control validate"
+                                                         placeholder="Dans quelle quartier habité vous ?"
+                                                          required
+                                                  />
+                                              </div>
+                                              <div class="form-group mb-3 col-xs-12 col-sm-6">
+                                                  <label
+                                                  > Télèphone
+                                                  </label>
+                                                  <input th:field="*{telephone}"
+                                                          name="telephone"
+                                                          type="text"
+                                                          class="form-control validate"
+                                                          placeholder="Numéro de télèphone ?"
+                                                          required
+                                                  />
+                                              </div>
+
+                                              <div class="form-group mb-3 col-xs-12 col-sm-6">
+                                                  <label
+                                                  > E-mail
+                                                  </label>
+                                                  <input th:field="*{email}"
+                                                          name="email"
+                                                          id="mail"
+                                                          type="text"
+                                                          class="form-control validate"
+
+                                                  />
+                                              </div>
+                                          </div>
+
+                                       <div class="col-12">
+                                          <button type="submit" class="btn btn-primary btn-block ">Valider mon Achat</button>
+                                       </div>
+                                  </form>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <script>
+              $(function() {
+                $("#expire_date").datepicker();
+              });
+            </script>
+          </body>
+        </html>

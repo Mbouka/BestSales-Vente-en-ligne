@@ -26,7 +26,7 @@ public class Produit implements Serializable {
     private String nomProduit;
 
     @Column(name = "prix_unit")
-    private Integer prixUnit;
+    private String prixUnit;
 
     @Column(name = "qntite_en_stock")
     private Integer qntiteEnStock;

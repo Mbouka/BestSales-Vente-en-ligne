@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
@@ -20,77 +21,42 @@ public class Livraison {
     @Column(name = "id_livraison", nullable = false)
     private Integer id;
 
-    @Column(name = "id_comprod", nullable = false)
+    @Column(name = "id_comprod", nullable = true)
     private Integer idComprod;
 
-    @Column(name = "prix_liv", nullable = false)
-    private Integer prixLiv;
+    @Column(name = "prix_liv", nullable = true)
+    private String prixLiv ;
 
     @Column(name = "quartier", nullable = false)
     private String quartier;
 
-    @Column(name = "ville")
+    @Column(name = "ville", nullable = false)
     private String ville;
 
-    @Column(name = "date_liv")
-    private LocalDate dateLiv;
+    @Column(name = "nom_client", nullable = false)
+    private String client;
 
-    @OneToMany(mappedBy = "idLivraison")
-    private Set<Commandeproduit> commandeproduits = new LinkedHashSet<>();
+    @Column(name = "email")
+    private String email;
 
-    public Set<Commandeproduit> getCommandeproduits() {
-        return commandeproduits;
-    }
+    @Column(name = "telephone", nullable = false)
+    private Long telephone;
 
-    public void setCommandeproduits(Set<Commandeproduit> commandeproduits) {
-        this.commandeproduits = commandeproduits;
-    }
+    @Column(name = "date_liv" ,nullable = false)
+    private String dateLiv ;
+//
+//    @OneToMany(mappedBy = "idLivraison")
+//    private Set<Commandeproduit> commandeproduits = new LinkedHashSet<>();
+//
+//    public Set<Commandeproduit> getCommandeproduits() {
+//        return commandeproduits;
+//    }
+//
+//    public void setCommandeproduits(Set<Commandeproduit> commandeproduits) {
+//        this.commandeproduits = commandeproduits;
+//    }
 
-    public LocalDate getDateLiv() {
-        return dateLiv;
-    }
 
-    public void setDateLiv(LocalDate dateLiv) {
-        this.dateLiv = dateLiv;
-    }
 
-    public String getVille() {
-        return ville;
-    }
 
-    public void setVille(String ville) {
-        this.ville = ville;
-    }
-
-    public String getQuartier() {
-        return quartier;
-    }
-
-    public void setQuartier(String quartier) {
-        this.quartier = quartier;
-    }
-
-    public Integer getPrixLiv() {
-        return prixLiv;
-    }
-
-    public void setPrixLiv(Integer prixLiv) {
-        this.prixLiv = prixLiv;
-    }
-
-    public Integer getIdComprod() {
-        return idComprod;
-    }
-
-    public void setIdComprod(Integer idComprod) {
-        this.idComprod = idComprod;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 }
