@@ -15,7 +15,9 @@
                               <div class="row">
                                   <div class="col-12">
                                       <h3  class="title-save"    style="color: #0e8ce4;"
-                                      >OU VOULEZ VOUS ,VOUS FAIRE LIVRER ??<span th:text="${liv.client}"></span> </h3>
+                                      >OU VOULEZ VOUS ,VOUS FAIRE LIVRER ??</h3>
+                                      <h4 th:text="${message}">Title</h4>
+
                                   </div>
                               </div>
                               <div class="row tm-edit-product-row">
@@ -65,6 +67,7 @@
                                               <label
                                               >Nom
                                               </label>
+                                              <p th:if="${#fields.hasErrors('client')}">Ce nom existe déjà</p>
                                               <input th:field="*{client}"
                                                      name="client"
                                                      type="text"
@@ -131,6 +134,7 @@
                                           <button type="submit" class="btn btn-primary btn-block ">Valider mon Achat</button>
                                        </div>
                                   </form>
+
                                   </div>
                               </div>
                           </div>
