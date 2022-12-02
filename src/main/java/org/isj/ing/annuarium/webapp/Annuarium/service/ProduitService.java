@@ -4,6 +4,7 @@ package org.isj.ing.annuarium.webapp.Annuarium.service;
 import lombok.extern.slf4j.Slf4j;
 import org.isj.ing.annuarium.webapp.Annuarium.Iservice.Iproduit;
 import org.isj.ing.annuarium.webapp.Annuarium.error.ErrorInfo;
+import org.isj.ing.annuarium.webapp.Annuarium.error.ProductNotExistException;
 import org.isj.ing.annuarium.webapp.Annuarium.error.isjException;
 import org.isj.ing.annuarium.webapp.Annuarium.model.entities.Categorie;
 import org.isj.ing.annuarium.webapp.Annuarium.model.entities.Produit;
@@ -19,6 +20,7 @@ import org.zalando.problem.Status;
 
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Transactional
@@ -31,6 +33,14 @@ public class ProduitService implements Iproduit {
     VendeurRepository vendeurRepository;
     @Autowired
     CategorieRepository categorieRepository;
+
+    public Produit findById(Integer productId) throws ProductNotExistException{
+        Optional<Produit> optionalProduit = produitRepository.findById(productId);
+        if (optionalProduit.isEmpty()){
+            throw new ProductNotExistException("Ce produit est invalide: "+ productId);
+        }
+        return optionalProduit.get();
+    }
 
 
     @Override
