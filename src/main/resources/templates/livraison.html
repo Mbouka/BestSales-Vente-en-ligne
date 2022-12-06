@@ -25,45 +25,53 @@
                                       <div class="form-group">
                                           <p  class="form-label" >La Livraison vous coutera <span th:text="${liv.prixLiv}"></span></p>
                                       </div>
+                                      <div class="logo_container" >
+                                          <img th:src="@{/assets/img/logo.png}" alt="" style="width: 150px;height: 180px;">
+                                      </div>
+
                                       <form
                                             th:action="@{/enregistrerlivraison}"
                                             th:method="post"
                                             th:object="${liv}"
                                             class="tm-edit-product-form">
 
-                                          <div class="icon">
-                                              <div class="col-xl-8 col-lg-12 col-md-12 mx-auto mb-4" style="
-        margin-right: -350px!important;
-    ">
+                                          <div class="icon" style="margin-top: -110px!important;">
+                                              <div class="col-xl-8 col-lg-12 col-md-12 mx-auto mb-4" style="margin-right: -300px!important; ">
 
+                                                  <div  style="margin-top: 70px";>
+                                                      <img
+                                                              th:src="@{/assets/img/validation.png}"
+                                                              alt="upload image"
+                                                              height="600"
+                                                              width="402"
+                                                      />
 
-                                                  <div class="button-wrapper" style="
-        text-align: center;
-        margin-top: 10px;
-    ">
-                                                      <label for="upload" class="btn btn-primary me-2 mb-4" tabindex="0">
-                                                          <span class="d-none d-sm-block">Ajouter une photo</span>
-                                                          <i class="bx bx-upload d-block d-sm-none"></i>
-                                                          <input
-                                                                  type="file"
-                                                                  id="upload"
-                                                                  class="account-file-input"
-                                                                  hidden
-                                                                  accept="image/png, image/jpeg"
-                                                          />
-                                                      </label>
+                                                  </div>
+
+                                                  <div class="button-wrapper" style="text-align: center;margin-top: 10px;">
+<!--                                                      <label for="upload" class="btn btn-primary me-2 mb-4" tabindex="0">-->
+<!--                                                          <span class="d-none d-sm-block"></span>-->
+<!--                                                          <i class="bx bx-upload d-block d-sm-none"></i>-->
+<!--                                                          <input-->
+<!--                                                                  type="file"-->
+<!--                                                                  id="upload"-->
+<!--                                                                  class="account-file-input"-->
+<!--                                                                  hidden-->
+<!--                                                                  accept="image/png, image/jpeg"-->
+<!--                                                          />-->
+<!--                                                      </label>-->
                                                   </div>
                                               </div>
                                           </div>
 
 
-                                          <div class="form-group">
-                                              <label  class="form-label">Entrer une date butoire</label>
+                                          <div class="form-group" style="margin-top: -630px!important;">
+                                              <label  class="form-label">Entrer la date livraison</label>
                                               <input  name="dateLiv" type="date" class="form-control" id="exampleInputUsername1" placeholder="DATE" th:field="*{dateLiv}">
                                           </div>
 
 
-                                          <div class="form-group mb-3" >
+                                          <div class="form-group mb-3"  >
                                               <label
                                               >Nom
                                               </label>

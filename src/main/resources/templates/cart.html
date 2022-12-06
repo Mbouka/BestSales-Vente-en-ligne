@@ -23,16 +23,23 @@
                                     <div class="cart_item_info d-flex flex-md-row flex-column justify-content-between">
                                         <div class="cart_item_name cart_info_col">
                                             <div class="cart_item_title">Nom</div>
-                                            <div class="cart_item_text">MacBook Air 13</div>
+                                            <div class="cart_item_text"><span  th:text="${prd.nomProduit}" class="pro-title"></span></div>
                                         </div>
 
                                         <div class="cart_item_quantity cart_info_col">
                                             <div class="cart_item_title">Quantite</div>
-                                            <div class="cart_item_text">1</div>
+                                            <div class="product_quantity clearfix" style="margin-top:20px;">
+
+                                            <input id="quantity_input" type="text" pattern="[0-9]*" value="1">
+                                            <div class="quantity_buttons">
+                                                <div id="quantity_inc_button" class="quantity_inc quantity_control"><i class="fas fa-chevron-up"></i></div>
+                                                <div id="quantity_dec_button" class="quantity_dec quantity_control"><i class="fas fa-chevron-down"></i></div>
+                                            </div>
+                                            </div>
                                         </div>
                                         <div class="cart_item_price cart_info_col">
                                             <div class="cart_item_title">Prix</div>
-                                            <div class="cart_item_text">$2000</div>
+                                            <div class="cart_item_text"><span  th:text="${prd.prixUnit}" class="pro-title"></span></div>
                                         </div>
                                         <div class="cart_item_total cart_info_col">
                                             <div class="cart_item_title">Total</div>
@@ -52,7 +59,7 @@
                         </div>
 
                         <div class="cart_buttons">
-                            <button type="submit"  class="button cart_button_checkout"><a th:href="@{/enregistrerlivraisonform}">Payer</a></button>
+                            <button type="submit"  class="button cart_button_checkout" style="color= red;/* color: red; */background-color: #0e8ce4; margin-top: 5px;"><a th:href="@{/enregistrerlivraisonform}">Payer</a></button>
                         </div>
                     </div>
                 </div>
