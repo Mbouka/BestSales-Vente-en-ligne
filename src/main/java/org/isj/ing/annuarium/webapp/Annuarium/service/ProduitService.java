@@ -34,13 +34,6 @@ public class ProduitService implements Iproduit {
     @Autowired
     CategorieRepository categorieRepository;
 
-    public Produit findById(Integer productId) throws ProductNotExistException{
-        Optional<Produit> optionalProduit = produitRepository.findById(productId);
-        if (optionalProduit.isEmpty()){
-            throw new ProductNotExistException("Ce produit est invalide: "+ productId);
-        }
-        return optionalProduit.get();
-    }
 
 
     @Override
@@ -52,6 +45,7 @@ public class ProduitService implements Iproduit {
         produit.setQntiteEnStock(produit.getQntiteEnStock());
         produit.setNomImage(produit.getNomImage());
         produit.setDescription(produit.getDescription());
+        produit.setQntiteCommander(0);
         Produit prsave = produitRepository.save(produit);
 
         if (prsave == null){
@@ -69,6 +63,7 @@ public class ProduitService implements Iproduit {
         produit.setPrixUnit(produit.getPrixUnit());
         produit.setQntiteEnStock(produit.getQntiteEnStock());
         produit.setDescription(produit.getDescription());
+        produit.setQntiteCommander(produit.getQntiteCommander());
 
        Produit prUpdate = produitRepository.save(produit);
        if (prUpdate== null){

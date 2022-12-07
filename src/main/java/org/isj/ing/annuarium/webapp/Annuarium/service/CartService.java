@@ -17,17 +17,17 @@ public class CartService {
     @Autowired
     CartRepository cartRepository;
 
-    public void ajouterAuPanier(AjouterAuPanierDto ajouterAuPanierDto) {
-
-//        validate if the product id is valid
-        Produit produit = produitService.findById(ajouterAuPanierDto.getProductId());
-
-        Cart cart = new Cart();
-        cart.setProduit(produit);
-        cart.setQuantite(ajouterAuPanierDto.getQuantity());
-        cart.setDateCreation(new Date());
-
-//        save the cart
-        cartRepository.save(cart);
-    }
+//    public void ajouterAuPanier(AjouterAuPanierDto ajouterAuPanierDto) {
+//
+////        validate if the product id is valid
+//        //Produit produit = produitService.findById(ajouterAuPanierDto.getProductId());
+//
+//        Cart cart = new Cart();
+//        cart.setProduit(produit);
+//        cart.setQuantite(ajouterAuPanierDto.getQuantity());
+//        cart.setDateCreation(new Date());
+//
+////        save the cart
+//        cartRepository.save(cart);
+//    }
 }

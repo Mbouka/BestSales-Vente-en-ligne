@@ -16,15 +16,15 @@ public class CartController {
     private CartService cartService;
 
 //    post cart api
-    @PostMapping("/add")
-    public ResponseEntity<ApiResponse> ajouterAuPanier(@RequestBody AjouterAuPanierDto ajouterAuPanierDto,/*@RequestParam("token") String token*/){
+    //@PostMapping("/add")
+    //public ResponseEntity<ApiResponse> ajouterAuPanier(@RequestBody AjouterAuPanierDto ajouterAuPanierDto,/*@RequestParam("token") String token*/){
 
 //        User user = authenticationService:getUser(token);
 
-        cartService.ajouterAuPanier(ajouterAuPanierDto);
+        //cartService.ajouterAuPanier(ajouterAuPanierDto);
 
-        return new ResponseEntity<>(new ApiResponse(true, "Ajouter au panier").HttpStatus.CREATED );
-    }
+        //return new ResponseEntity<>(new ApiResponse(true, "Ajouter au panier").HttpStatus.CREATED );
+   // }
 //    get all cart items for a user
 
 //    delete a cart item for a user
