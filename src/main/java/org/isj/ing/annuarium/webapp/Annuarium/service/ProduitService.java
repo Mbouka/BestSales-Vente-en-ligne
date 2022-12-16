@@ -19,6 +19,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.zalando.problem.Status;
 
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -101,18 +102,19 @@ public class ProduitService implements Iproduit {
         return produitRepository.findById(id).orElseThrow(()->new isjException(ErrorInfo.PRODUIT_NOT_FOUND));
     }
 
-  /* @Override
-    public List<Produit> findProduitByCategorie(Integer idcat, int page, int size) throws isjException {
+   @Override
+    public List<Produit> findProduitByCategorie(Integer idcat) throws isjException {
         Categorie categorie=categorieRepository.findById(idcat).orElseThrow(()->new isjException(ErrorInfo.CATEGORIE_NOT_FOUND));
         List<Produit> produitListCat = new ArrayList<>();
 
-        for (int i=0;i<PRODUIT_LIST(page, size).size();i++){
-            if (PRODUIT_LIST(page, size).get(i).getIdCategorie().equals(categorie.getId())){
-                produitListCat.add(PRODUIT_LIST(page, size).get(i));
+        for (int i=0;i<listProduit().size();i++){
+            if (listProduit().get(i).getNomCat().equals(categorie.getNomCat())){
+                produitListCat.add(listProduit().get(i));
             }
         }
+       System.out.println(produitListCat);
         return produitListCat;
-    }*/
+    }
 
    /* @Override
     public List<Produit> findProduitByVendeur(Integer idvendeur, int page, int size) throws isjException {

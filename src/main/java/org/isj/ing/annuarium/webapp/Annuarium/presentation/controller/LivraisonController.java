@@ -45,8 +45,8 @@ public class LivraisonController {
 
         return "livraisonReussi";
     }
-    @GetMapping("/")
+  /*  @GetMapping("/")
     public String retourAcceuil(Model model){
         return "index";
-    }
+    }*/
 }

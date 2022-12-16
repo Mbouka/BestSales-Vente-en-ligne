@@ -23,11 +23,11 @@ public class ProduitController {
     @Autowired
     private Icategorie icategorie;
 
-    @GetMapping("/")
+    /*@GetMapping("/")
     public String pageAccueil(Model model) {
 
         return "index";
-    }
+    }*/
 
 
     @GetMapping("/enregistrerproduitform")
@@ -55,9 +55,18 @@ public class ProduitController {
     @GetMapping("/Listes")
     public String pageListeProduit(Model model)  {
         List<Produit> prd =iProduit.listProduit();
-       List<Categorie> cat= icategorie.listCat();
-        model.addAttribute("cat",cat);
         model.addAttribute("prd",prd);
+        List<Categorie> cat= icategorie.listCat();
+        model.addAttribute("cat",cat);
+        return "listeproduit";
+    }
+
+    @GetMapping("/Listescat")
+    public String pageListeCat(Model model,@RequestParam(name ="idcat")Integer idcat) throws isjException {
+
+        List<Produit> prod=iProduit.findProduitByCategorie(idcat);
+        model.addAttribute("prod",prod);
+        System.out.println("je passe ici");
         return "listeproduit";
     }
 

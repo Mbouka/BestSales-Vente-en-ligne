@@ -29,13 +29,13 @@
 
                     <div class="sidebar_section">
                         <div class="sidebar_title">Categories</div>
-                        <ul class="sidebar_categories">
+                        <ul class="sidebar_categories"th:each="cat : ${cat}">
 
-                            <li><a th:href="@{/Listes}">Informatique</a></li>
-                            <li ><a th:href="@{/Listes}">Voitures</a></li>
+                            <li><a th:href="@{'/Listescat?idcat=' + ${cat.idcat}}" th:text="${cat.nomCat}">Informatique</a></li>
+                            <!--<li ><a th:href="@{/Listes}">Voitures</a></li>
                             <li><a th:href="@{/Listes}">ElectroMénager</a></li>
                             <li ><a th:href="@{/Listes}">Décoration</a></li>
-                            <li><a th:href="@{/Listes}">Cuisine</a></li>
+                            <li><a th:href="@{/Listes}">Cuisine</a></li>-->
 
                         </ul>
                     </div>
@@ -55,7 +55,7 @@
                             <ul>
                                 <li>
                                     <span class="sorting_text">highest rated<i class="fas fa-chevron-down">
-                                    </span></i>
+                                    </i></span>
                                     <ul>
                                         <li class="shop_sorting_button"
                                             data-isotope-option='{ "sortBy": "original-order" }'>highest rated
