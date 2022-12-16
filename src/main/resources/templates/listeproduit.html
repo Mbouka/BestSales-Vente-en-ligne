@@ -28,15 +28,10 @@
                 <div class="shop_sidebar">
 
                     <div class="sidebar_section">
-                        <div class="sidebar_title">Categories</div>
+                        <div class="sidebar_title">Catégorie</div>
                         <ul class="sidebar_categories"th:each="cat : ${cat}">
 
-                            <li><a th:href="@{'/Listescat?idcat=' + ${cat.idcat}}" th:text="${cat.nomCat}">Informatique</a></li>
-                            <!--<li ><a th:href="@{/Listes}">Voitures</a></li>
-                            <li><a th:href="@{/Listes}">ElectroMénager</a></li>
-                            <li ><a th:href="@{/Listes}">Décoration</a></li>
-                            <li><a th:href="@{/Listes}">Cuisine</a></li>-->
-
+                            <li><a th:href="@{'/Listescat?idcat=' + ${cat.id}}"  th:text="${cat.nomCat}"></a></li>
                         </ul>
                     </div>
                 </div>
@@ -49,7 +44,7 @@
 
                 <div class="shop_content">
                     <div class="shop_bar clearfix">
-                        <div class="shop_product_count"><span>186</span> produit(s) trouver</div>
+                        <div class="shop_product_count"><span th:text="${numPrd}"></span> produit(s) trouver</div>
                         <div class="shop_sorting">
                             <span>Sort by:</span>
                             <ul>

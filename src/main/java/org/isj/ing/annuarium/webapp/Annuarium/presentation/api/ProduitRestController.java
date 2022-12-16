@@ -77,17 +77,15 @@ public class ProduitRestController {
 
         return ResponseEntity.ok((iproduit.countProduit()));
     }
-   /* @GetMapping("/all/{id}/{page}/{size}")
+    @GetMapping("/all/{id}")
     public ResponseEntity<List<Produit>>ListCat(
-            @PathVariable("page")int page,
-            @PathVariable("size") int size,
             @PathVariable("id") Integer id
     ) throws isjException {
 
-        return ResponseEntity.ok(iproduit.findProduitByCategorie(id,page,size));
+        return ResponseEntity.ok(iproduit.findProduitByCategorie(id));
     }
 
-    @GetMapping("/all/{id}/{page}/{size}")
+   /* @GetMapping("/all/{id}/{page}/{size}")
     public ResponseEntity<List<Produit>>listVend(
             @PathVariable("page")int page,
             @PathVariable("size") int size,

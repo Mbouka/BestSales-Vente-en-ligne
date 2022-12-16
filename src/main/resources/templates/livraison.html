@@ -13,8 +13,12 @@
                       <div class="col-xl-9 col-lg-10 col-md-12 col-sm-12 mx-auto">
                           <div class="tm-bg-primary-dark tm-block tm-block-h-auto">
                               <div class="row">
-                                  <div class="col-12">
-                                      <h3  class="title-save"    style="color: #0e8ce4;"
+                                  <div class="col-12" style="display:flex; justify-content:left;gap:50px;">
+                                      <div class="logo_container" >
+                                          <img th:src="@{/assets/img/logo.png}" alt="" style="width: 150px;height: 180px;margin-top:-40px;">
+
+                                      </div>
+                                      <h3  class="title-save"    style="color: #0e8ce4;margin-top:15px;"
                                       >OU VOULEZ VOUS ,VOUS FAIRE LIVRER ??</h3>
                                       <h4 th:text="${message}">Title</h4>
 
@@ -29,6 +33,25 @@
                                           <img th:src="@{/assets/img/logo.png}" alt="" style="width: 150px;height: 180px;">
                                       </div>
 
+                                  <div class="form-group" style="
+    /* margin-top: -29px!important; */
+    /* gap: 13px; */
+    text-align: center;
+    /* margin-bottom: 17px; */
+    margin-top: -100px;
+    font-size: 20px!important;
+    /* margin-right: 200px; */
+">
+                                      <p  class="form-label" >La Livraison vous coutera <span style="    font-weight: bold;
+    font-size: 15px;" th:text="${liv.prixLiv}"></span></p>
+
+                                  </div>
+                              </div>
+                              <div class="row tm-edit-product-row">
+                                  <div class="col-xl-6 col-lg-6 col-md-12"style="
+    margin-top: 60px;
+">
+
                                       <form
                                             th:action="@{/enregistrerlivraison}"
                                             th:method="post"
@@ -37,41 +60,32 @@
 
                                           <div class="icon" style="margin-top: -110px!important;">
                                               <div class="col-xl-8 col-lg-12 col-md-12 mx-auto mb-4" style="margin-right: -300px!important; ">
+                                          <div class="icon" style=" margin-top: -100px!important;">
+                                              <div class="col-xl-8 col-lg-12 col-md-12 mx-auto mb-4" style=" margin-right: -350px!important; margin-top: -15px!important;">
+                                                  <div  style="margin-top: -170px">
+                                                  <img
+                                                          th:src="@{/assets/img/livraison.png}"
+                                                          alt="upload image"
+                                                          height="600"
+                                                          width="402"
+                                                          style="margin-top:200px;"
+                                                  /> </div>
 
-                                                  <div  style="margin-top: 70px";>
-                                                      <img
-                                                              th:src="@{/assets/img/validation.png}"
-                                                              alt="upload image"
-                                                              height="600"
-                                                              width="402"
-                                                      />
 
-                                                  </div>
 
-                                                  <div class="button-wrapper" style="text-align: center;margin-top: 10px;">
-<!--                                                      <label for="upload" class="btn btn-primary me-2 mb-4" tabindex="0">-->
-<!--                                                          <span class="d-none d-sm-block"></span>-->
-<!--                                                          <i class="bx bx-upload d-block d-sm-none"></i>-->
-<!--                                                          <input-->
-<!--                                                                  type="file"-->
-<!--                                                                  id="upload"-->
-<!--                                                                  class="account-file-input"-->
-<!--                                                                  hidden-->
-<!--                                                                  accept="image/png, image/jpeg"-->
-<!--                                                          />-->
-<!--                                                      </label>-->
+                                                  <div class="button-wrapper" style=" text-align: center;margin-top: -1000px;">
                                                   </div>
                                               </div>
                                           </div>
 
 
-                                          <div class="form-group" style="margin-top: -630px!important;">
-                                              <label  class="form-label">Entrer la date livraison</label>
-                                              <input  name="dateLiv" type="date" class="form-control" id="exampleInputUsername1" placeholder="DATE" th:field="*{dateLiv}">
+                                          <div class="form-group">
+                                              <label  class="form-label">Entrer une date livraison</label>
+                                              <input style="color:black"  name="dateLiv" type="date" class="form-control" id="exampleInputUsername1" placeholder="DATE" th:field="*{dateLiv}">
                                           </div>
 
 
-                                          <div class="form-group mb-3"  >
+                                          <div class="form-group mb-3" >
                                               <label
                                               >Nom
                                               </label>

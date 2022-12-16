@@ -36,7 +36,6 @@ public class ProduitController {
         produit.setPrixUnit("FRS CFA");
         List<Categorie> cat=icategorie.listCat();
         model.addAttribute("cat",cat);
-        model.addAttribute("testons","testons");
         System.out.println(cat);
         model.addAttribute("produit",produit);
         return "saveproduit";
@@ -46,8 +45,6 @@ public class ProduitController {
     public String enregistrerMateriel(@ModelAttribute Produit produit) throws isjException {
 
         ProduitController.log.info("enregistrer-produit");
-        // appel de la couche service ou metier injectée pour enregistrer un materiel
-//        iProduit.saveProd(idCat,idvnte,produit);ce qui a ete modifie avec vinny
         iProduit.saveProd(produit);
         return "redirect:Listes";
     }
@@ -56,17 +53,23 @@ public class ProduitController {
     public String pageListeProduit(Model model)  {
         List<Produit> prd =iProduit.listProduit();
         model.addAttribute("prd",prd);
-        List<Categorie> cat= icategorie.listCat();
+        List<Categorie> cat =icategorie.listCat();
         model.addAttribute("cat",cat);
+        long compt= iProduit.countProduit();
+        long numPrd=compt;
+        model.addAttribute("numPrd",numPrd);
         return "listeproduit";
     }
 
     @GetMapping("/Listescat")
     public String pageListeCat(Model model,@RequestParam(name ="idcat")Integer idcat) throws isjException {
-
-        List<Produit> prod=iProduit.findProduitByCategorie(idcat);
-        model.addAttribute("prod",prod);
-        System.out.println("je passe ici");
+        List<Produit> prd=iProduit.findProduitByCategorie(idcat);
+        model.addAttribute("prd",prd);
+        List<Categorie> cat =icategorie.listCat();
+        model.addAttribute("cat",cat);
+        long compt= iProduit.countProduit();
+        long numPrd=compt;
+        model.addAttribute("numPrd",numPrd);
         return "listeproduit";
     }
 
@@ -78,16 +81,14 @@ public class ProduitController {
     }
 
     @GetMapping("/carts")
-    public String pageCart(@RequestParam(name ="id")Integer id,Model model) throws isjException{
-
-        Produit prd = iProduit.findProduitById(id);
-        model.addAttribute("prd",prd);
+    public String pageCart(Model model) throws isjException{
+      /*  Produit prd = iProduit.findProduitById(id);
+        model.addAttribute("prd",prd);*/
         return "cart";
     }
 
     @GetMapping("/livraison")
     public String pageLivraison(Model model) {
-
         return "livraison";
     }
 }

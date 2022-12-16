@@ -31,9 +31,10 @@
                         <div class="tm-product-img-dummy mx-auto" style="margin-top: 52px";>
                             <img
                                     th:src="@{/assets/img/search.png}"
+                                    id="output"
                                     alt="upload image"
-                                    height="100"
-                                    width="100"
+                                    height="200"
+                                    width="200"
                             />
 
                         </div>
@@ -46,7 +47,8 @@
                                         id="upload"
                                         class="account-file-input"
                                         hidden
-                                        accept="image/png, image/jpeg"
+                                        accept="image/*"
+                                        onchange="loadImg(event)"
                                 />
                             </label>
                         </div>
@@ -146,32 +148,6 @@
                  ></i>-->
 
 
-             <!-- <div class="col-xl-6 col-lg-6 col-md-12 mx-auto mb-4">
-                <div class="tm-product-img-dummy mx-auto">
-                    <img
-                            th:src="@{/assets/img/search.png}"
-                            alt="upload image"
-                            height="100"
-                            width="100"
-                    />
-
-                </div>
-                <div class="custom-file mt-3 mb-3">
-                  <label>
-                      <span>ajouter</span>
-                      <input
-                              type="file"
-                              id="upload"
-                              class="btn btn-primary btn-block mx-auto"
-                              hidden
-                              accept="image/jpeg ,image/png"
-                      />
-                  </label>
-                   onclick="document.getElementById('fileInput').click();"
-                         value="Ajouter une image"
-                         <input id="fileInput" type="file" style="display:none;" />-->
-              <!--</div>
-           </div>-->
            <div class="col-12">
                 <button type="submit" class="btn btn-primary btn-block text-uppercase">Enregistrer</button>
               </div>
@@ -192,5 +168,11 @@
         $("#expire_date").datepicker();
       });
     </script>
+      <script>
+                                    var loadImg = function(event){
+                                        var photo = document.getElementById('output');
+                                        photo.src= URL.createObjectURL(event.target.files[0]);
+                                    }
+      </script>
   </body>
 </html>
