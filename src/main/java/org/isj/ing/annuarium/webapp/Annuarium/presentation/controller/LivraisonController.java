@@ -41,9 +41,13 @@ public class LivraisonController {
     }
 
     @GetMapping("/LivraisonReussi")
-    public String pageListeProduit(Model model)  {
-
+    public String pageListeProduit(Model model,@RequestParam(name ="id")Integer id) throws isjException {
+        //Livraison liv = ilivraison.findLivraisonById(id);
+        //model.addAttribute("liv",liv);
         return "livraisonReussi";
     }
-
+  /*  @GetMapping("/")
+    public String retourAcceuil(Model model){
+        return "index";
+    }*/
 }

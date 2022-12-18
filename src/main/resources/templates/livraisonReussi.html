@@ -7,10 +7,12 @@
 <th:block th:replace="fragments/_header.html::header"></th:block>
 
 <div class="container tm-mt-big tm-mb-big">
-    <div class="row">
+    <div class="row" >
         <h1>Enregistrement reussi</h1>
-        <h2 vvous allez recevoir votre packet le ><span th:text="${liv.dateLiv}">Title</span>
+        <h2 vous allez recevoir votre packet le ><span th:text="${liv.dateLiv}">Title</span>
         </h2>
+        <p>Prix total:<span th:text="${liv.prixLiv}"></span></p>
+        <p>Le paiement se fera à la livraison</p>
 
 </div>
 </div>

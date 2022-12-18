@@ -31,13 +31,15 @@ public class Produit implements Serializable {
     @Column(name = "qntite_en_stock")
     private Integer qntiteEnStock;
 
-
     @Column(name = "seuil")
     private Integer seuil;
 
 
     @Column(name = "nom_image")
     private String nomImage;
+
+    @Column(name = "qntiteCommander")
+    private Integer qntiteCommander;
 
     @Column(name = "nom_cat")
     private String nomCat;

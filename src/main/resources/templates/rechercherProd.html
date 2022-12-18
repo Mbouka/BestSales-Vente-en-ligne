@@ -19,17 +19,11 @@
 
                 <!-- Images -->
                 <div class="col-lg-2 order-lg-1 order-2">
-                    <ul class="image_list">
-                        <li data-image="images/single_4.jpg"><img th:src="@{/assets/img/single_4.jpg}" alt=""></li>
-                        <li data-image="images/single_2.jpg"><img th:src="@{/assets/img/single_2.jpg}" alt=""></li>
-                        <li data-image="images/single_3.jpg"><img th:src="@{/assets/img/single_3.jpg}" alt=""></li>
-                    </ul>
+                   <form>
+
+                   </form>
                 </div>
 
-                <!-- Selected Image -->
-                <div class="col-lg-5 order-lg-2 order-1">
-                    <div class="image_selected"><img th:src="@{/assets/img/single_4.jpg}" alt=""></div>
-                </div>
 
 
                 <!-- Description -->
@@ -37,35 +31,35 @@
                     <div class="product_description">
 
 
-                            <p><span class="pro-title"> </span> <span th:text="${prd.nomCat}" class="pro-title1"></span></p>
-                            <p><span class="pro-title1"> Nom:</span> <span  th:text="${prd.nomProduit}" class="pro-title1"></span></p>
-                            <p><span class="pro-title1"> Description:</span> <span  th:text="${prd.description}" class="pro-title1"></span></p>
-                            <p><span class="pro-title1"> Quantite:</span> <span th:text="${prd.qntiteCommander}"  class="pro-title1"></span></p>
-                            <p><span class="pro-title1"> Prix:</span> <span  th:text="${prd.prixUnit}" class="pro-title1"></span></p>
+                        <p><span class="pro-title"> </span> <span th:text="${prd.nomCat}" class="pro-title1"></span></p>
+                        <p><span class="pro-title1"> Nom:</span> <span  th:text="${prd.nomProduit}" class="pro-title1"></span></p>
+                        <p><span class="pro-title1"> Description:</span> <span  th:text="${prd.description}" class="pro-title1"></span></p>
+                        <p><span class="pro-title1"> Quantite:</span> <span th:text="${prd.a}"  class="pro-title1"></span></p>
+                        <p><span class="pro-title1"> Prix:</span> <span  th:text="${prd.prixUnit}" class="pro-title1"></span></p>
 
 
 
-                            <form action="#">
+                        <form action="#">
 
 
-                                <div class="button_container" style="
+                            <div class="button_container" style="
     /* margin-bottom: -42px!important; */
     margin-top: 182px;
 ">
                                 <button type="submit" class="button cart_button"><a th:href="@{/carts}">Ajouter au panier</a></button>
-                                    <div class="product_fav"><i class="fas fa-heart"></i></div>
-                                </div>
+                                <div class="product_fav"><i class="fas fa-heart"></i></div>
+                            </div>
 
-                            </form>
-                        </div>
+                        </form>
                     </div>
                 </div>
-
             </div>
+
         </div>
     </div>
+</div>
 
-    <!-- Footer -->
+<!-- Footer -->
 
 <div class="copyright">
     <footer class="footer">
