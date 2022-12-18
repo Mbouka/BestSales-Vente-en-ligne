@@ -67,4 +67,5 @@ public class CommandeService implements Icommande {
     public Commande findCommandeById(Integer id) throws isjException {
         return commandeRepository.findById(id).orElseThrow(()->new isjException(ErrorInfo.COMMANDE_NOT_FOUND));
     }
+
 }

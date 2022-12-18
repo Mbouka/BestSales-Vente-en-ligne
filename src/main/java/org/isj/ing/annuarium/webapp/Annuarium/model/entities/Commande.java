@@ -20,6 +20,9 @@ public class Commande {
     @Column(name = "id_commande", nullable = false)
     private Integer id;
 
+    @Column(name = "qntite_commande")
+    private Integer qntiteCommande;
+
 
     @Column(name = "date_com", nullable = false)
     private LocalDate dateCom;
