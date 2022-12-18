@@ -10,6 +10,64 @@
 
     <!-- Header -->
     <th:block th:replace="fragments/_header.html::header"></th:block>
+    <nav class="main_nav">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+
+                    <!--                        <div class="main_nav_menu ml-auto">-->
+                    <!--                            <a th:href="@{/}" style="font-size:35px; margin-left: -60px;"><i class="bi bi-arrow-left-circle"></i></a>-->
+                    <!--                        </div>-->
+                    <!-- Categories Menu -->
+
+                    <!--                        <div class="cat_menu_container">-->
+
+                    <!--                            <div class="cat_menu_title d-flex flex-row align-items-center justify-content-start">-->
+                    <!--                                <div class="cat_burger"><span></span><span></span><span></span></div>-->
+
+                    <!--                                <div class="cat_menu_text">categories</div>-->
+                    <!--                            </div>-->
+
+                    <!--                            <ul class="cat_menu">-->
+                    <!--                                <li><a th:href="@{/Listes}">Informatique <i class="fas fa-chevron-right ml-auto"></i></a></li>-->
+                    <!--                                <li><a th:href="@{/Listes}">Voitures<i class="fas fa-chevron-right"></i></a></li>-->
+                    <!--                                <li ><a th:href="@{/Listes}">ElectroMénager <i class="fas fa-chevron-right"></i></a></li>-->
+                    <!--                                <li><a th:href="@{/Listes}">Décoration<i class="fas fa-chevron-right"></i></a></li>-->
+                    <!--                                <li><a th:href="@{/Listes}">Cuisine<i class="fas fa-chevron-right"></i></a></li>-->
+
+                    <!--                            </ul>-->
+
+                    <!-- Main Nav Menu -->
+
+                    <div class="main_nav_menu ml-auto">
+                        <ul class="standard_dropdown main_nav_dropdown" style="text-align:right;">
+
+                            <!--                                <div class="button banner_button  " style="color:#009970"><a th:href="@{/enregistrerproduitform}" style="-->
+                            <!--    /* color: black; */-->
+                            <!--    background-color: #009970;">Publier Produit</a></div>-->
+                            <li class="breadcrumb-item "><a th:href="@{/Listes}">Acceuil<i class="fas fa-chevron-down"></i></a></li>
+
+                            <li class="breadcrumb-item "><a style="
+    margin-top: -19px;
+"th:href="@{/}">Panier<i class="fas fa-chevron-down"></i></a></li>
+                            <!--                                <li><a th:href="@{/Listes}">ElectroMénager<i class="fas fa-chevron-down"></i></a></li>-->
+                            <!--                                <li ><a th:href="@{/Listes}">Décoration<i class="fas fa-chevron-down"></i></a></li>-->
+                            <!--                                <li><a th:href="@{/Listes}">Cuisine<i class="fas fa-chevron-down"></i></a></li>-->
+
+                            <!--                                    <li class="breadcrumb-item "><a th:href="@{/Listes}"></a></li>-->
+                            <!--                                    <li class="breadcrumb-item active"></li>-->
+                            <!--                                -->
+                        </ul>
+                    </div>
+
+                    <!-- Menu Trigger -->
+
+
+                </div>
+            </div>
+        </div>
+</div>
+</nav>
     <div class="cart_section">
         <div class="container">
             <div class="row">

@@ -13,4 +13,5 @@ public interface Icategorie {
   Categorie findCat(Integer id) throws isjException;
   Categorie searchNom(String nom) throws isjException;
   String deleteCat (Integer id) throws  isjException;
+  List<Categorie> searchCategorieByKeyword(String keyword);
 }

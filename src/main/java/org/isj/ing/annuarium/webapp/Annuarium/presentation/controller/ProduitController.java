@@ -81,4 +81,28 @@ public class ProduitController {
 
         return "livraison";
     }
+
+//    @PostMapping("/rechercherproduit" )
+//    public String rechercherProduits( @RequestParam(name = "nom") String nom,
+//                                   Model model) throws isjException {
+//
+//        ProduitController.log.info("rechercher-produit");
+//        // appel de la couche service ou metier injectée pour enregistrer un materiel
+////        List<Categorie> cate=  categorie.searchCategorieByKeyword(motcle);
+//
+////        model.addAttribute("acteDtos",acteDtos);
+//        icategorie.searchNom(nom);
+//
+//        return "rechercher";
+//    }
+
+    @GetMapping("/rechercherproduitform")
+    public String pagerechercherproduitform(Model model) {
+        Categorie categorie=  new Categorie();
+        //apppel de la couche service pour avoir la liste des actes dto
+        List<Categorie> cat=icategorie.listCat();
+        model.addAttribute("cat",cat);
+
+        return "rechercher";
+    }
 }

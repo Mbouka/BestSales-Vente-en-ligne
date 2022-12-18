@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+
+<head>
+  <th:block th:replace="fragments/_head.html::head"></th:block>
+</head>
+
+<body>
+
+<!-- ======= Header ======= -->
+<th:block th:replace="fragments/_header.html::header"></th:block>
+<!-- End Header -->
+
+<main id="main">
+
+  <!-- ======= Breadcrumbs ======= -->
+  <section class="breadcrumbs">
+    <div class="container">
+
+      <div class="d-flex justify-content-between align-items-center">
+        <h2></h2>
+        <ol>
+          <li><a th:href="@{/}">Accueil</a></li>
+          <li>Rechercher un Produit</li>
+        </ol>
+      </div>
+
+    </div>
+  </section><!-- End Breadcrumbs -->
+
+  <section class="inner-page">
+    <div class="container">
+      <section class="inner-page">
+        <div class="container">
+          <section id="team" class="team">
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-4">
+                  <div class="section-title" data-aos="fade-right">
+                    <h3>Rechercher un Produit</h3>
+
+                  </div>
+                </div>
+
+                <div class="col-lg-4 footer-newsletter">
+                  <form th:action="@{/rechercherproduit}"  th:method="post">
+                    <input type="text" name="nom"><input type="submit" value="Rechercher">
+                  </form>
+                </div>
+
+                <div th:each="produit : ${prd}" class="product_item is_new">
+                  <div class="product_border"></div>
+                  <div class="product_image d-flex flex-column align-items-center justify-content-center">
+                    <img th:src="@{/assets/img/new_5.jpg}" alt=""></div>
+                  <div class="product_content">
+                    <div th:text="${produit.prixUnit}" class="product_price">$225</div>
+                    <div th:text="${produit.nomProduit}" class="product_name">
+                      Philips BT6900A
+                    </div>
+                    <div style="display: flex; gap: 25px!important; justify-content: center;">
+                      <a th:href="@{'/detail?id=' + ${produit.id}}" tabindex="0"><i class="ri-eye-fill"
+                                                                                    style="color: #0e8ce4;"></i></a>
+                      <a th:href="@{'/carts?id=' + ${produit.id}}" tabindex="0"><i class="bi bi-cart"
+                                                                                   style="color: #0e8ce4;"></i></a>
+
+                    </div>
+                  </div>
+                  <div class="product_fav"><i class="fas fa-heart"></i></div>
+                  <ul class="product_marks">
+                    <li class="product_mark product_discount">-25%</li>
+                    <li class="product_mark product_new">new</li>
+                  </ul>
+                </div>
+
+              </div>
+
+            </div>
+          </section>
+
+        </div>
+      </section>
+    </div>
+  </section>
+
+</main><!-- End #main -->
+
+<!-- ======= Footer ======= -->
+
+  <div class="shop_page_nav d-flex flex-row">
+    <div class="page_prev d-flex flex-column align-items-center justify-content-center"><i
+            class="fas fa-chevron-left"></i></div>
+    <ul class="page_nav d-flex flex-row">
+      <li><a th:href="@{/#}">1</a></li>
+      <li><a th:href="@{/#}">2</a></li>
+      <li><a th:href="@{/#}">3</a></li>
+      <li><a th:href="@{/#}">...</a></li>
+      <li><a th:href="@{/#}">21</a></li>
+    </ul>
+    <div class="page_next d-flex flex-column align-items-center justify-content-center"><i
+            class="fas fa-chevron-right"></i></div>
+  </div>
+
+  </div>
+
+  </div>
+  </div>
+  </div>
+  </div>
+  <div class="copyright">
+    <footer class="footer">
+
+      <div class="container"  >
+        <div class="row">
+
+          <div class="col-lg-3 footer_col" >
+            <div class="footer_column footer_contact">
+              <div class="logo_container">
+                <div class="logo"><a href="#">BESTSALES</a></div>
+              </div>
+              <div class="footer_title">Got Question? Call Us 24/7</div>
+              <div class="footer_phone">+38 068 005 3570</div>
+              <div class="footer_contact_text">
+                <p>17 Princess Road, London</p>
+                <p>Grester London NW18JR, UK</p>
+              </div>
+              <div class="footer_social">
+                <ul>
+                  <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                  <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                  <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                  <li><a href="#"><i class="fab fa-google"></i></a></li>
+                  <li><a href="#"><i class="fab fa-vimeo-v"></i></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-2 offset-lg-2">
+            <div class="footer_column">
+              <div class="footer_title">Accès Rapide</div>
+              <ul class="footer_list">
+                <li><a href="#">Informatique</a></li>
+                <li><a href="#">Electroménager</a></li>
+                <li><a href="#">Cuisine</a></li>
+                <li><a href="#"> Voitures</a></li>
+                <li><a href="#">Décoration</a></li>
+              </ul>
+              <div class="footer_subtitle">Gadgets</div>
+              <ul class="footer_list">
+                <li><a href="#">Car Electronics</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-lg-2">
+            <div class="footer_column">
+              <ul class="footer_list footer_list_2">
+                <li><a href="#">Video Games & Consoles</a></li>
+                <li><a href="#">Accessories</a></li>
+                <li><a href="#">Cameras & Photos</a></li>
+                <li><a href="#">Hardware</a></li>
+                <li><a href="#">Computers & Laptops</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-lg-2">
+            <div class="footer_column">
+              <div class="footer_title">Service Client</div>
+              <ul class="footer_list">
+                <li><a href="#">Mon Compte</a></li>
+                <li><a href="#">Acceuil</a></li>
+                <li><a href="#">Favoris</a></li>
+                <li><a href="#">Service client</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">FAQs</a></li>
+                <li><a href="#">Aide</a></li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </footer>
+
+    <!-- Copyright -->
+
+    <div class="copyright">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+
+            <div class="copyright_container d-flex flex-sm-row flex-column align-items-center justify-content-start">
+              <div class="copyright_content"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">BESTSALES</a>
+                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+<!-- Vendor JS Files -->
+<script src="assets/vendor/purecounter/purecounter.js"></script>
+<script src="assets/vendor/aos/aos.js"></script>
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+<script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+<script src="assets/vendor/php-email-form/validate.js"></script>
+
+<!-- Template Main JS File -->
+<script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

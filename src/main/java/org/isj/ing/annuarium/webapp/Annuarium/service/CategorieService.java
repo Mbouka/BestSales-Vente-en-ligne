@@ -8,12 +8,12 @@ import org.isj.ing.annuarium.webapp.Annuarium.error.isjException;
 import org.isj.ing.annuarium.webapp.Annuarium.model.entities.Categorie;
 import org.isj.ing.annuarium.webapp.Annuarium.repository.CategorieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.zalando.problem.Status;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @Slf4j
@@ -64,5 +64,14 @@ public class CategorieService implements Icategorie {
         categorieRepository.deleteById(id);
         return "Categorie" + categorie.getNomCat() + "supprimer avec succés";
 
+    }
+
+    @Override
+    public List<Categorie> searchCategorieByKeyword(String keyword) {
+        return null;
+//                categorieRepository.findCategorieByNumeroOrNom(keyword,keyword).get().stream()
+//                //.map(acte -> acteMapper.toDto(acte))
+//                .map(categorieRepository::findCategorieByNumeroOrNom)
+//                .collect(Collectors.toList());
     }
 }
